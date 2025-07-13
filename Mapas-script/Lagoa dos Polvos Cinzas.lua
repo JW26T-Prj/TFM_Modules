@@ -52,10 +52,10 @@ end
 function eventNewGame(name)
 	if changed == true then
 		for name,_ in next,tfm.get.room.playerList do
-			showMessage("<VP><b>Bem-vindo(a) a Lagoa dos Polvos Cinzas.</b><br><br><p align='left'><N>Este é um mapa-script bem simples de lagoa.<br>Não é muito profunda, e possui muita terra firme! Apenas aproveite e curta!<br><br><R>Aviso: Este mapa pode consumir até 1GB de RAM dependendo de casos específicos.<br><br><ROSE><b>Mapa feito por Morganadxana#0000.</b><br><J>Agradecimentos especiais para Reksai_void2600#6638 e Spectra_phantom#6089.<b></b><br><br><N>Deseja usar este mapa-script no cafofo de sua tribo? Use o link a seguir:<br><N><VP>raw.githubusercontent.com/JW26T-Prj/FunCorpModules/master/Mapas-script/Lagoa%20dos%20Polvos%20Cinzas.lua",name)
+			showMessage("<VP><b>Bem-vindo(a) a Lagoa dos Polvos Cinzas.</b>\n\n<p align='left'><N>Este é um mapa-script bem simples de lagoa.\nNão é muito profunda, e possui muita terra firme! Apenas aproveite e curta!\n\n<R>Aviso: Este mapa pode consumir até 1GB de RAM dependendo de casos específicos.\n\nAgradecimentos especiais para Reksai_void2600#6638 e Spectra_phantom#6089.<b></b>\n\n<N>Deseja usar este mapa-script no cafofo de sua tribo? Use o link a seguir:\n<N><VP>raw.githubusercontent.com/JW26T-Prj/TFM_Modules/refs/heads/master/Mapas-script/Lagoa%20dos%20Polvos%20Cinzas.lua\n\nRevisão 1.1",name)
 			showWater(name)
 		end
-		ui.setMapName("<VP>Lagoa dos Polvos Cinzas - <ROSE>Morgana's Mechanical Maps<")
+		ui.setMapName("<VP>Lagoa dos Polvos Cinzas<")
 		tfm.exec.setGameTime(4800)
 	else
 		tfm.exec.setGameTime(5)
@@ -71,8 +71,8 @@ end
 function eventNewPlayer(name)
 	tfm.exec.respawnPlayer(name)
 	if changed == true then
-		ui.setMapName("<VP>Lagoa dos Polvos Cinzas - <ROSE>Morgana's Mechanical Maps<")
-		showMessage("<VP><b>Bem-vindo(a) a Lagoa dos Polvos Cinzas.</b><br><br><p align='left'><N>Este é um mapa-script bem simples de lagoa.<br>Não é muito profunda, e possui muita terra firme! Apenas aproveite e curta!<br><br><R>Aviso: Este mapa pode consumir até 1GB de RAM dependendo de casos específicos.<br><br><ROSE><b>Mapa feito por Morganadxana#0000.</b><br><J>Agradecimentos especiais para Reksai_void2600#6638 e Spectra_phantom#6089.<b></b><br><br><N>Deseja usar este mapa-script no cafofo de sua tribo? Use o link a seguir:<br><N><VP>raw.githubusercontent.com/JW26T-Prj/FunCorpModules/master/Mapas-script/Lagoa%20dos%20Polvos%20Cinzas.lua",name)
+		ui.setMapName("<VP>Lagoa dos Polvos Cinzas<")
+		showMessage("<VP><b>Bem-vindo(a) a Lagoa dos Polvos Cinzas.</b>\n\n<p align='left'><N>Este é um mapa-script bem simples de lagoa.\nNão é muito profunda, e possui muita terra firme! Apenas aproveite e curta!\n\n<R>Aviso: Este mapa pode consumir até 1GB de RAM dependendo de casos específicos.\n\n<J>Agradecimentos especiais para Reksai_void2600#6638 e Spectra_phantom#6089.<b></b>\n\n<N>Deseja usar este mapa-script no cafofo de sua tribo? Use o link a seguir:\n<N><VP>raw.githubusercontent.com/JW26T-Prj/TFM_Modules/refs/heads/master/Mapas-script/Lagoa%20dos%20Polvos%20Cinzas.lua\n\nRevisão 1.1",name)
 		showWater(name)
 	end
 end
