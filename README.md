@@ -9,5 +9,8 @@ Some of these codes are intended to be used with FunCorp members, but other play
 
 **To add a code to this folder, contact one of the following users into Transformice: Shun_kazami#7014, Patrick_mahomes#1795 or Nurzak#7525.**
 
-Link of our folder:
+Link of our folder for sharing:
 https://github.com/JW26T-Prj/TFM_Modules/
+
+Link of our random codes for testing folder:
+https://github.com/JW26T-Prj/randomthings/
