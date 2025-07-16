@@ -2,7 +2,7 @@ for _,f in next,{"AutoShaman","AutoScore","AutoNewGame","AutoTimeLeft","AutoScor
 	tfm.exec["disable"..f](true)
 end
 for _,g in next,{"p","pw","help","powerups"} do
-system.disableChatCommandDisplay(g,true)
+	system.disableChatCommandDisplay(g,true)
 end
 sudden=false; winner=""; data={}; players_table={}; increase=0; intensity=40; nightmode=false; night=0; mices=0; remain=10; last_win=""; times=1; imageId=-1; enabled=false;
 if tfm.get.room.isTribeHouse == false then tfm.exec.setRoomMaxPlayers(35) end
@@ -44,7 +44,7 @@ function eventChatCommand(name,message)
 		end
 	end
 	if message == "help" then
-		menuShow(name,0x686868,140,100,520,240,"Help","The objetive of this module is kill the other players using the mouse to generate spirits.\n\nAt moment, 6 powerups are available:\nF1 = Fast Spirits (700 points)\nF2 = Double Power (700 points)\nF3 = Box Meteor (550 points)\nF4 = Night Mode (400 points)\nF5 = Ultra Explosion (800 points)\nF6 = Stone Meteor (750 points)")
+		menuShow(name,0x686868,140,100,520,200,"Help","The objetive of this module is to stay alive and kill the other players using the mouse to generate spirits.\n\nAt moment, 6 powerups are available:\nF1 = Fast Spirits (700 points)\nF2 = Double Power (700 points)\nF3 = Box Meteor (550 points)\nF4 = Night Mode (400 points)\nF5 = Ultra Explosion (800 points)\nF6 = Stone Meteor (750 points)")
 	end
 	if message == "powerups" then
 		menuShow(name,0x686868,140,100,520,240,"Powerups List","<b>F1 - Fast Spirits - 700 points</b>\nAllows you to use spirits without the default timeout.\n<b>F2 - Double Power - 700 points</b>\nDouble the power of your anvils, independently of actual intensity.\n<b>F3 - Box Meteor - 550 points</b>\nSpawns a meteor of large box on the map.\n<b>F4 - Night Mode - 400 points</b>\nBlacks out the map for 2 seconds.\n<b>F5 - Ultra Explosion - 800 points</b>\nSpawns a huge amount of spirits around the map.\n<b>F6 - Stone Meteor - 750 points</b>\nSpawns a lot of stones falling from the top of map.")
@@ -61,7 +61,7 @@ function eventNewPlayer(name)
 		tfm.exec.bindKeyboard(name,i,true,true)
 	end
 	system.bindMouse(name,true)
-	showMessage("<VP><b>Welcome to module ClickWar!</b>\n<N>Use the mouse to generate explosions and kill other mices!",name)
+	showMessage("<VP><b>Welcome to module ClickWar!</b>\n<N>Use the mouse to generate explosions, kill other mices and stay alive!",name)
 end
 for name,player in pairs(tfm.get.room.playerList) do
 	eventNewPlayer(name)
