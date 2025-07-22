@@ -46,7 +46,7 @@ perguntas={
 "Quantos jogos a Atelier 801 tem atualmente?","5","6",2,
 "Qual é a fricção e a restituição, respectivamente, de um piso de chocolate?","20 e 0","0 e 20",1,
 "Qual destes usuários é responsável pelo module #anvilwar?","Spectra_phantom#6089","Jessiewind26#2546",1,
-"Qual destes usuários é responsável pelo module #batata?","Laagaadoo#0000","Ikke#0020",1,
+"Qual destes usuários é responsável pelo module #batata?","Laagaadoo#0000","Ikke#0010",1,
 "Qual destes comandos é utilizado para a inserção de um código especial da Japan Expo?","/lua","/code",2,
 "A habilidade 'Meep!' faz parte de qual árvore de Habilidades?","Selvagem","Físico",1,
 "Qual a categoria atribuída a mapas de cafofo da tribo?","P22","P20",1,
@@ -564,6 +564,7 @@ perguntas1={
 "Quais destes municípios pertencem ao Estado do Pará?","Santarém e Carueira","Santarém e Itaituba",2,
 "Em qual estado brasileiro fica localizado o Parque Nacional da Serra dos Órgãos?","Rio de Janeiro","Minas Gerais",1,
 "Na informática, qual o termo usado para um vírus cuja finalidade é 'roubar' dos dados do usuário?","Cavalo de Tróia","Malware",1,
+"Qual cidade do Rio de Janeiro é conhecida como a 'Cidade do Aço'?","Volta Redonda","São João da Barra",1,
 }
 perguntas2={
 "Vai na sorte :)","ok","ok",1,
