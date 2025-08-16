@@ -1,5 +1,5 @@
 -- Mestre Mandou / Simon Says / Simón Dice / Szymon Mówi!
--- Version 7.25
+-- Version 7.26
 -- Managed by Shun_kazami#7014
 
 admin={} -- insira o nome dos FunCorps aqui! / insert the FunCorp names here! / inserte los nombres de los FunCorps aquí! / wpisz tutaj imiona FunCorp!
@@ -64,7 +64,7 @@ acids2={type = 19,width = 2400,height = 10,miceCollision = true,groundCollision 
 acids3={type = 19,width = 10,height = 800,miceCollision = true,groundCollision = false, foreground = true}
 system.disableChatCommandDisplay(nil,true)
 lang.br = {
-	welcome = "<N><b>Bem-vindos ao module Mestre Mandou!</b>\nSiga tudo o que o jogo mandar e teste seus limites até o fim!\n\n<BL>Gerenciado por Shun_kazami#7014\nIdea original de Jessiewind26#2546\n<R>Versão 7.25",
+	welcome = "<N><b>Bem-vindos ao module Mestre Mandou!</b>\nSiga tudo o que o jogo mandar e teste seus limites até o fim!\n\n<BL>Gerenciado por Shun_kazami#7014\nIdea original de Jessiewind26#2546\n<R>Versão 7.26",
 	dancar = "Dance!",
 	sentar = "Sente!",
 	confetar = "Atire 5 confetes!",
@@ -218,7 +218,7 @@ lang.br = {
 	cds = "Comandos",
 }
 lang.en = {
-	welcome = "<N><b>Welcome to Simon Says module!</b>\nFollow everything the game told and test your limits until the end!\n\n<BL>Original idea from Jessiewind26#2546, managed by Shun_kazami#7014\n<R>Version 7.25",
+	welcome = "<N><b>Welcome to Simon Says module!</b>\nFollow everything the game told and test your limits until the end!\n\n<BL>Original idea from Jessiewind26#2546, managed by Shun_kazami#7014\n<R>Version 7.26",
 	dancar = "Dance!",
 	sentar = "Sit down!",
 	confetar = "Throw 5 confetti!",
@@ -372,7 +372,7 @@ lang.en = {
 	cds = "Commands",
 }
 lang.es = {
-	welcome = "<N><b>WBienvenido al juego Simón Dice!</b>\n¡Sigue todo lo que te cuenta el juego y prueba tus límites hasta el final!\n\n<BL>Administrado por Shun_kazami#7014\nIdea original de Jessiewind26#2546\n<R>Versión 7.25",
+	welcome = "<N><b>WBienvenido al juego Simón Dice!</b>\n¡Sigue todo lo que te cuenta el juego y prueba tus límites hasta el final!\n\n<BL>Administrado por Shun_kazami#7014\nIdea original de Jessiewind26#2546\n<R>Versión 7.26",
 	dancar = "¡Baile!",
 	sentar = "¡Siéntate!",
 	confetar = "¡Lanza 5 confetis!",
@@ -526,7 +526,7 @@ lang.es = {
 	cds = "Comandos",
 }
 lang.pl = {
-	welcome = "<N><b>Witaj w module Szymon mówi!</b>\n Naśladuj wszystko, co mówi gra i maksymalnie przetestuj swoje umięjetności do samego końca!\n\n<BL>Oryginalny pomysł z Jessiewind26#2546, Zarządzane przez Shun_kazami#7014\nTłumaczone przez Kozakwiki#0000\n<R>Version 7.25",
+	welcome = "<N><b>Witaj w module Szymon mówi!</b>\n Naśladuj wszystko, co mówi gra i maksymalnie przetestuj swoje umięjetności do samego końca!\n\n<BL>Oryginalny pomysł z Jessiewind26#2546, Zarządzane przez Shun_kazami#7014\nTłumaczone przez Kozakwiki#0000\n<R>Version 7.26",
 	dancar = "Zatańcz!",
 	sentar = "Usiądź!",
 	confetar = "Wyrzuć 5 razy confetti!",
@@ -684,12 +684,12 @@ numbers1={{83,104,117,110,95,107,97,122,97,109,105,35,55,48,49,52},
 {83,107,121,121,109,101,108,108,117,35,48,48,48,48},
 {86,105,101,103,111,35,48,51,52,53},
 {72,119,101,105,35,49,48,50,55},
-{75,108,97,117,115,35,52,49,51,49},
+{76,117,105,115,105,110,35,49,55,49,55},
 {68,117,100,117,98,115,35,48,57,57,48},
-{71,105,108,108,35,50,57,54,54},
+{84,105,116,97,110,53,48,35,48,48,48,48},
 {78,101,107,97,110,35,48,48,48,48},
 {71,108,111,98,111,95,114,117,114,97,108,35,54,53,51,50},
-{88,102,99,101,52,35,52,50,51,56},
+{82,97,110,100,111,109,107,97,110,105,35,52,56,55,48},
 {77,101,108,35,52,53,52,56},
 {83,107,121,95,104,100,116,118,35,52,57,52,50}}
 ninjas={}
@@ -951,7 +951,7 @@ end
 function eventChatCommand(name,message)
 	if unlocked == true then
 		if message == "help" then showMenu(name,0x185412,150,125,500,148,text.help,text.hcontent); end
-		if message == "changelog" then showMenu(name,0x808080,150,145,500,118,"Changelog - Version 7.25","• Fixes on the 'Take care! Enter into the portal and get killed!' command\n• Changed the location of the Menu\n• Players cannot use emoticons anymore during the 'Take care! Enter into the portal and get killed!' command when all players are freezed"); end
+		if message == "changelog" then showMenu(name,0x808080,150,145,500,100,"Changelog - Version 7.26","• Little internal changes"); end
 		if message == "credits" then showMenu(name,0x808080,150,135,500,158,"Credits","<font size='12'><b>The following people were responsible for taking such good care of this script to this day:</b>\n\n• Jessiewind26#2546 (2014-2019, 2023-2025)\n• Nasus_assassin#1534 (2019-2020)\n• Rakan_raster#0000 (2020-2022)\n• Dhanny_mheyran#6701 (2022-2023)\n• Shun_kazami#7014 (2025-)"); end
 		if verifyNinjas(name) == true then
 			if(message:sub(0,5) == "stmsg") then
@@ -2646,15 +2646,15 @@ function eventLoop(passado,faltando)
 	if unlocked == true then
 		local tempo=math.floor(faltando/1000)
 		if active == -2 and testmode == false then
-			ui.setMapName("<N>"..text.mices.."   <G>|   <J><b>"..text.version.." 7.25</b><")
+			ui.setMapName("<N>"..text.mices.."   <G>|   <J><b>"..text.version.." 7.26</b><")
 		elseif active == -2 and testmode == true then
-			ui.setMapName("<N>"..text.mices2.."   <G>|   <J><b>"..text.version.." 7.25</b><")
+			ui.setMapName("<N>"..text.mices2.."   <G>|   <J><b>"..text.version.." 7.26</b><")
 		elseif active == -1 and vivo >= 1 then
-			ui.setMapName("<VP>"..text.fim.."<b>"..tempo.."</b> "..text.segundos.."   <G>|   <J><b>"..text.version.." 7.25</b><")
+			ui.setMapName("<VP>"..text.fim.."<b>"..tempo.."</b> "..text.segundos.."   <G>|   <J><b>"..text.version.." 7.26</b><")
 		elseif active == -1 and vivo <= 0 then
-			ui.setMapName("<N>"..text.dofim.."<b>"..tempo.."</b> "..text.segundos.."   <G>|   <J><b>"..text.version.." 7.25</b><")
+			ui.setMapName("<N>"..text.dofim.."<b>"..tempo.."</b> "..text.segundos.."   <G>|   <J><b>"..text.version.." 7.26</b><")
 		elseif active >= 0 then
-			ui.setMapName(""..text.mestre.."   <G>|   <N>"..text.map.." : <V>"..tfm.get.room.currentMap.."   <G>|   <N>"..text.mice.." : <V>"..vivo.." / "..rato.."   <G>|   <N>"..text.round.." : <V>"..rodada.."   <G>|   <J><b>"..text.version.." 7.25</b><")
+			ui.setMapName(""..text.mestre.."   <G>|   <N>"..text.map.." : <V>"..tfm.get.room.currentMap.."   <G>|   <N>"..text.mice.." : <V>"..vivo.." / "..rato.."   <G>|   <N>"..text.round.." : <V>"..rodada.."   <G>|   <J><b>"..text.version.." 7.26</b><")
 		end
 		if testmode == true then
 			if rato < 2 then
