@@ -1,5 +1,5 @@
 -- STOP
--- Escrito por Ninguem - 31/08/2015 // Atualizado por Akwimos#1937, Viego#0345 e Nekan#0000 - 04/06/2025
+-- Escrito por Ninguem - 31/08/2015 // Atualizado por Viego#0345 e Nekan#0000 - 25/08/2025
 -- Mínimo de 5 temas e máximo de 20 temas.
 -- Para bloquear um jogador, digite !kick [nome#tag]. Digite o mesmo comando para desbloqueá-lo caso o mesmo já esteja bloqueado.
 
@@ -25,20 +25,20 @@ PALAVRA = 1
 TEMPO = false
 LETRA = ""
 MAPA = "@7962880"
-BAR_TEXT = "<font color='#1178E6'><b>STOP!</b> <N>Script editado por Akwimos#1937, Viego#0345 e Nekan#0000 - 04/06/2025<"
+BAR_TEXT = "<font color='#1178E6'><b>STOP!</b> <N>Script editado por Viego#0345 e Nekan#0000 - 25/08/2025<"
 data = {};
 ninjas = {};
 temp_time = -1;
 final = ""
 numbers={
-{65,107,119,105,109,111,115,35,49,57,51,55},
-{76,101,98,108,97,110,99,35,53,51,52,50},
 {86,105,101,103,111,35,48,51,52,53},
 {83,107,121,121,109,101,108,108,117,35,48,48,48,48},
 {67,114,105,97,35,51,53,52,51},
 {71,108,111,98,111,95,114,117,114,97,108,35,54,52,51,50},
-{77,97,114,97,109,97,114,97,52,35,48,48,48,48},
-{78,117,114,122,97,107,35,55,53,50,53}
+{76,105,110,99,101,100,101,121,35,48,48,48,48},
+{84,105,116,97,110,53,48,35,48,48,48,48},
+{78,101,107,97,110,35,48,48,48,48},
+{82,97,110,100,111,109,107,97,110,105,35,52,56,55,48}
 }
 for i=1,rawlen(numbers) do
 	final=""
