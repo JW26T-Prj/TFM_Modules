@@ -9,7 +9,7 @@ events_pt={"Fúria da Tormenta","Chuva de Caixas","Anomalia Gravitacional","Quei
 events_en={"Wind Fury","Box Rain","Gravity Anomaly","Cheese for All"}
 power_d={p2={8,10,12,14},p3={12,14,16,18,20,22}}
 lang.br = {
-	mapname = "<N><b>Mountain</b>  <V>-  <N>versão <ROSE>v1.5.0<",
+	mapname = "<N><b>Mountain</b>  <V>-  <N>versão <ROSE>v1.5.1<",
 	enter = "<N>Bem-vindo ao module <J><b>Mountain!</b>\n<N>Você tem pouco mais que 3 minutos para escalar a grande montanha que há pelo caminho!",
 	newgame = "<N>Caso não saiba o que fazer neste module, vá no Menu e clique em Ajuda.",
 	getready = "<J>Se prepare! A estrada para a montanha será liberada em breve!",
@@ -35,7 +35,7 @@ lang.br = {
 	memory_error = "<R>Aviso: Não há mais memória disponível para o Transformice. Para continuar jogando este module, saia do jogo e entre novamente.",
 }
 lang.en = {
-	mapname = "<N><b>Mountain</b>  <V>-  <N>version <ROSE>v1.5.0",
+	mapname = "<N><b>Mountain</b>  <V>-  <N>version <ROSE>v1.5.1",
 	enter = "<N>Welcome to the <J><b>Mountain</b> module!\n<N>You have about 3 minutes to scale the big mountain that is on your way!",
 	newgame = "<N>If you don't know about this module, go to the Menu and access the Help.",
 	getready = "<J>Get ready! The road to the mountain will be opened!",
@@ -187,7 +187,7 @@ function eventTextAreaCallback(id,name,callback)
 		showMenu(name,0xb6e980,140,90,520,130,"Credits",text.credits)
 	end
 	if callback == "change" then
-		showMenu(name,0x2578f6,140,60,520,265,"Changelog","<font size='11'>[v1.5.0]:\n• Several internal changes\n\n[v1.4.0]:\n• Some code cleaning\n• Changes on the commands handling\n• Added copyright information\n\n[v1.3.0]:\n• New module owner\n\n[v1.2.1]:\n• The powerup 'Meteor Rain' was changed to 'Box Rain'\n• Some changes on timers and match time\n\n[v1.2.0]:\n• Changes on the ownership")
+		showMenu(name,0x2578f6,140,60,520,265,"Changelog","<font size='11'>[v1.5.1]:\n• Souris players cannot play this game anymore\n\n[v1.5.0]:\n• Several internal changes\n\n[v1.4.0]:\n• Some code cleaning\n• Changes on the commands handling\n• Added copyright information\n\n[v1.3.0]:\n• New module owner\n\n[v1.2.1]:\n• The powerup 'Meteor Rain' was changed to 'Box Rain'\n• Some changes on timers and match time")
 	end
 end
 function eventNewGame()
@@ -200,6 +200,10 @@ function eventNewGame()
 			tfm.exec.addPhysicObject(i, 180+(i*5680), 10475, ground)
 		end
 		for name,player in next,tfm.get.room.playerList do
+			if name:sub(1,1) == "*" then
+		   		tfm.exec.killPlayer(name)
+		   		showMessage("<R>Souris aren't allowed to play on this module. Create an account or log in to play this game.",name)
+			end
 			data[name].a=0;
 			data[name].enabled=true;
 			showImages(name)
