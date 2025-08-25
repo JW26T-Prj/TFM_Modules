@@ -16,7 +16,7 @@ f1_r={{4292,1941},{6197,1566},{1769,1131}}; f2_r={{5787,1848},{3869,963}}; f3_r=
 
 lang.br = {
 	welcome = "<font color='#0080ff'><b>Bem-vindos ao module WaterCatch!</b>\n<VP>Fuja do shaman tubarão e sobreviva no perigoso rio!\n<J>Digite !help para ver a ajuda deste module.\n<BL>Gerenciado por Lacoste#8972",
-	changelog = "• Pequenas correções de bugs\n• Adição de 4 novos peixes!",
+	changelog = "• Pequenas mudanças internas",
 	help = "<p align='center'><b>Bem-vindo ao module WaterCatch.</b><p align='left'>\n\nSe você for um rato, você deverá fugir do shaman (ou o tubarão), tomando cuidado para que ele não chegue muito perto de você. Se quiser ficar dentro do rio, tome cuidado: se ficar debaixo d'água por muito tempo, você pode morrer afogado!\n\nSe você for o shaman (no caso, o tubarão), seu objetivo será caçar todos os ratos, tentando não deixar nenhum sequer vivo!\n<R>Ah, e não esqueça de se mexer, ou irá morrer por inatividade!</b>\n\n<VP>Os círculos com <N>'?'<VP> são powerups, que geram efeitos aleatórios nos ratos.\nOs círculos com <N>'O2'<VP> são reposições de oxigênio.\nEstes powerups podem ser acionados pressionando ESPAÇO em cima deles.\n<N>Você pode ver os possíveis efeitos dos powerups indo no Menu e em Powerups.",
 	powerups = "<font size='11'>Os seguintes powerups estão disponíveis no momento:\n<ROSE><b>• VAMPIRO</b><N>\nTransforma seu rato em um vampiro, forçando você a ir para fora do rio.\n<ROSE><b>• AFUNDAR</b><N>\nCria uma curta anomalia que puxa todos os ratos para o fundo do rio.\n<ROSE><b>• MEEP</b><N>\nTe dá o poder de usar o Meep!\n<ROSE><b>• SUFOCO</b><N>\nDiminui o seu nível de oxigênio. Caso seu nível de oxigênio esteja muito baixo e você pegue este powerup, você morrerá afogado.\n<ROSE><b>• CONGELAR</b><N>\nCongela o seu rato.\n<ROSE><b>• QUEIJO</b><N>\nDá queijo para o seu rato.\n<ROSE><b>• IMPULSO</b><N>\nTe dá um impulso para frente. Pode ajudar a fugir do shaman...\n<ROSE><b>• SUBIDA</b><N>\nGera uma força que te empurra para fora do rio.\n<ROSE><b>• CRESCER</b><N>\nAumenta temporariamente o tamanho do seu rato.",
 	shark = "Tubarão",
@@ -53,7 +53,7 @@ lang.br = {
 }
 lang.en = {
 	welcome = "<font color='#0080ff'><b>Welcome to the WaterCatch module!</b>\n<VP>Run away from the shark shaman and survive in the dangerous river!\n<J>Type !help to see the game help.\n<BL>Managed by Lacoste#8972",
-	changelog = "• Small bugfixes\n• 5 new fishes are now available!",
+	changelog = "• Small internal changes",
 	help = "<p align='center'><b>Welcome to module WaterCatch.</b><p align='left'>\n\nIf you are a mice, you must run away from the shaman (the shark), being careful not to let him get too close to you. If you want to stay in the river, be careful: if you stay underwater for too long, you might drown!\n\nIf you are the shaman (in this case, the shark), your goal will be to hunt all the mices, trying not to leave a single one alive!\n<R>Oh, and don't forget to move, or you will die by inactivity!</b>\n\n<VP>The circles with '?' are powerups, which generate random effects on the players.\nThe circles with 'O2' are oxygen repositions.\nThese powerups can be activated by pressing SPACE on them.\n<N>You can see the possible effects of the powerups by going to the Menu and then Powerups.",
 	powerups = "<font size='11'>The following powerups are available at moment:\n<ROSE><b>• VAMPIRE</b><N>\nTurns your mouse into a vampire, forcing you out of the river.\n<ROSE><b>• SUBMERGE</b><N>\nCreate an anomaly that pushes all the mices to the bottom of the river.\n<ROSE><b>• MEEP</b><N>\nGives the MEEP ability!\n<ROSE><b>• SUFFOCATE</b><N>\nReduces your oxygen level. If your oxygen level is very low and you enable this powerup, you will drown in the river.\n<ROSE><b>• FREEZE</b><N>\nFreeze your mice.\n<ROSE><b>• CHEESE</b><N>\nGive cheese to your mice.\n<ROSE><b>• BOOST</b><N>\nGives you a boost forward. It can help you escape the shaman...\n<ROSE><b>• GO UP</b><N>\nIt generates a force that pushes you out of the river.\n<ROSE><b>• GROW</b><N>\nIncreases temporarily the size of your mice.",
 	shark = "Shark",
@@ -97,13 +97,15 @@ end
 
 numbers1={{78,97,109,105,100,101,101,112,119,105,110,35,48,48,48,48},
 {82,105,118,101,110,35,49,54,51,48},
-{83,107,121,95,104,100,116,118,35,52,57,52,50},
 {65,107,119,105,109,111,115,35,49,57,51,55},
 {83,107,121,121,109,101,108,108,117,35,48,48,48,48},
-{86,105,116,111,114,53,48,48,48,48,48,48,35,48,48,48,48},
 {84,111,114,110,97,100,117,117,122,105,110,35,52,51,48,53},
-{71,108,111,98,111,95,114,117,114,97,108,35,54,53,51,50},
-{76,97,99,111,115,116,101,35,56,57,55,50}}
+{75,108,97,117,115,35,52,49,51,49},
+{74,114,109,101,116,101,98,97,108,97,35,48,51,50,49},
+{83,101,110,110,97,35,54,49,53,51},
+{76,117,105,115,105,110,35,49,55,49,55},
+{84,105,116,97,110,53,48,35,48,48,48,48},
+{78,101,107,97,110,35,48,48,48,48}}
 for i=1,rawlen(numbers1) do
 	final=""
 	for j=1,rawlen(numbers1[i]) do
@@ -448,7 +450,7 @@ function eventChatCommand(name,message)
 		showAvailableSharks(name)
 	end
 	if message == "changelog" then
-		showMenu(name,0x109626,140,115,520,115,"Watercatch Changelog - Version 7.4.0",text.changelog)
+		showMenu(name,0x109626,140,115,520,115,"Watercatch Changelog - Version 7.4.1",text.changelog)
 	end
 	if (message:sub(0,2)== "tc") then
 		if tfm.get.room.playerList[name].isShaman == false then
