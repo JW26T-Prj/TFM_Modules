@@ -56,7 +56,7 @@ asteroid_2={type = 12,width = 80,height = 40,foreground = false,friction = 4,res
 asteroid_3={type = 12,width = 160,height = 80,foreground = false,friction = 5,restitution = 0.2,angle = 0, color = 0, miceCollision = true, groundCollision = true, dynamic = true, fixedRotation = false, mass = 25000}
 asteroid_4={type = 12,width = 320,height = 160,foreground = false,friction = 6,restitution = 0.25,angle = 0, color = 0, miceCollision = true, groundCollision = true, dynamic = true, fixedRotation = false, mass = 50000}
 lang.br = {
-	ajuda="<VP>Bem-vindos ao RockerLaunch 6!\n<N>Neste module, o shaman tem 2 minutos para construir um foguete que precisa levar todos os ratos para o espaço! Digite !help para saber como jogar.\n\n<BL>Créditos para Lynet#8558, Puffezinhaq#0000, Digo20games#0000, Dhanny_mheyran#6701 e Threshlimit#0000. Conceito original de Nettoork#0000.\n<J>Versão 6.14",
+	ajuda="<VP>Bem-vindos ao RockerLaunch 6!\n<N>Neste module, o shaman tem 2 minutos para construir um foguete que precisa levar todos os ratos para o espaço! Digite !help para saber como jogar.\n\n<BL>Créditos para Lynet#8558, Puffezinhaq#0000, Digo20games#0000, Dhanny_mheyran#6701 e Threshlimit#0000. Conceito original de Nettoork#0000.\n<J>Versão 6.15",
 	mapname="<b>RockerLaunch 6</b><N> - o céu é o limite!<",
 	start="<J>O shaman tem 2 minutos para construir um foguete que precisa levar todos os ratos para o espaço!",
 	loadingmap="<J>Carregando mapa. Por favor, aguarde...<",
@@ -72,7 +72,7 @@ lang.br = {
 	player_sync="Jogador com menor ping para sync: ",
 }
 lang.en = {
-	ajuda="<VP>Welcome to RocketLaunch 6!\n<N>In this module, the shaman has 2 minutes to build a rocket that needs to take all the mice into space!\nType !help to see more information.\n\n<BL>Credits to Lynet#8558, Puffezinhaq#0000, Digo20games#0000, Dhanny_mheyran#6701 and Threshlimit#0000. Original concept by Nettoork#0000.\n<J>Version 6.14",
+	ajuda="<VP>Welcome to RocketLaunch 6!\n<N>In this module, the shaman has 2 minutes to build a rocket that needs to take all the mice into space!\nType !help to see more information.\n\n<BL>Credits to Lynet#8558, Puffezinhaq#0000, Digo20games#0000, Dhanny_mheyran#6701 and Threshlimit#0000. Original concept by Nettoork#0000.\n<J>Version 6.15",
 	mapname="<b>RockerLaunch 6</b><N> - The Sky is the Limit!<",
 	start="<J>The shaman has 2 minutes to build a rocket that needs to take all mices into space!",
 	loadingmap="<J>Loading map. Please wait...<",
@@ -97,14 +97,13 @@ objects2={1,3,6,23,33,39,60,65,2,68,69}
 objects3={1,3,6,23,33,39,60,65,2,68,69,4,7,10,17,35,85,90}
 objects4={1,3,6,23,33,39,60,65,2,68,69,4,7,10,17,35,85,90,40,61,67}
 numbers1={{70,97,98,114,105,99,105,111,35,48,53,49,57},
-{83,97,109,105,114,97,35,52,51,56,55},
 {83,107,121,121,109,101,108,108,117,35,48,48,48,48},
 {71,108,111,98,111,95,114,117,114,97,108,35,54,53,51,50},
 {86,105,101,103,111,35,48,51,52,53},
-{84,101,99,115,35,50,55,57,49},
 {83,107,121,95,104,100,116,118,35,52,57,52,50},
-{65,108,105,115,115,111,110,35,51,57,51,56},
-{86,97,115,99,111,50,100,118,105,115,97,111,35,48,48,48,48}}
+{86,97,115,99,111,50,100,118,105,115,97,111,35,48,48,48,48},
+{84,105,116,97,110,53,48,35,48,48,48,48},
+{76,117,105,115,105,110,35,49,55,49,55}}
 managers={}
 
 for i=1,rawlen(numbers1) do
