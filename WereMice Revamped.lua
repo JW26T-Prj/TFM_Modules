@@ -203,7 +203,7 @@ function updateArea2(text,name)
 end
 function selectLanguage()
 	if rawlen(admin) == 0 then
-		ui.addPopup(0,0,"IMPORTANTE: Para que este código seja executado em um cafofo de tribo, é necessário colocar os nomes dos administradores na tabela presente na primeira linha do código.\n\nIMPORTANT: For this code to run in a tribehouse, it is necessary to put the names of the administrators in the table present in the first line of the code.\n",nil,150,25,500,true)
+		ui.addPopup(0,0,"IMPORTANTE: Para que este código seja executado em um cafofo de tribo, é necessário colocar os nomes dos administradores na tabela presente na primeira linha do código.\n\nIMPORTANT: For this code to run in a tribehouse, it is necessary to put the names of the administrators in the table present in the first line of the code.\n\nIMPORTANTE: Para que este código funcione en una tribu, es necesario colocar los nombres de los administradores en la tabla presente en la primera línea del código.\n\nWAŻNE: Aby ten kod działał w domu plemiennym, konieczne jest wpisanie nazwisk administratorów w tabeli znajdującej się w pierwszym wierszu kodu.",nil,150,25,500,true)
 	end
 	for _,name in next,admin do
 		ui.addTextArea(2000,"<font size='14'><p align='center'>Select your language:",name,300,150,185,23,0x000001,0x505050,0.98,true)
