@@ -1,5 +1,5 @@
 -- Mestre Mandou / Simon Says / Simón Dice / Szymon Mówi!
--- Version 7.27
+-- Version 7.28
 -- Managed by Shun_kazami#7014
 
 admin={} -- insira o nome dos FunCorps aqui! / insert the FunCorp names here! / inserte los nombres de los FunCorps aquí! / wpisz tutaj imiona FunCorp!
@@ -64,7 +64,7 @@ acids2={type = 19,width = 2400,height = 10,miceCollision = true,groundCollision 
 acids3={type = 19,width = 10,height = 800,miceCollision = true,groundCollision = false, foreground = true}
 system.disableChatCommandDisplay(nil,true)
 lang.br = {
-	welcome = "<N><b>Bem-vindos ao module Mestre Mandou!</b>\nSiga tudo o que o jogo mandar e teste seus limites até o fim!\n\n<BL>Gerenciado por Shun_kazami#7014\nIdeia original de Jessiewind26#2546\n<R>Versão 7.27",
+	welcome = "<N><b>Bem-vindos ao module Mestre Mandou!</b>\nSiga tudo o que o jogo mandar e teste seus limites até o fim!\n\n<BL>Gerenciado por Shun_kazami#7014\nIdeia original de Jessiewind26#2546\n<R>Versão 7.28",
 	dancar = "Dance!",
 	sentar = "Sente!",
 	confetar = "Atire 5 confetes!",
@@ -218,7 +218,7 @@ lang.br = {
 	cds = "Comandos",
 }
 lang.en = {
-	welcome = "<N><b>Welcome to Simon Says module!</b>\nFollow everything the game told and test your limits until the end!\n\n<BL>Original idea from Jessiewind26#2546, managed by Shun_kazami#7014\n<R>Version 7.27",
+	welcome = "<N><b>Welcome to Simon Says module!</b>\nFollow everything the game told and test your limits until the end!\n\n<BL>Original idea from Jessiewind26#2546, managed by Shun_kazami#7014\n<R>Version 7.28",
 	dancar = "Dance!",
 	sentar = "Sit down!",
 	confetar = "Throw 5 confetti!",
@@ -338,7 +338,7 @@ lang.en = {
 	lava1 = "Caution! The floor is turning into lava!",
 	lava2 = "The floor is lava!",
 	lava3 = "Caution! The floor is turning into acid!",
-	lava4 = "Cuidado! The floor is turning into ice!",
+	lava4 = "Caution! The floor is turning into ice!",
 	ice = "The floor is ice!",
 	light = "The map is now black!",
 	ndurma = "Don't sleep!",
@@ -372,7 +372,7 @@ lang.en = {
 	cds = "Commands",
 }
 lang.es = {
-	welcome = "<N><b>WBienvenido al juego Simón Dice!</b>\n¡Sigue todo lo que te cuenta el juego y prueba tus límites hasta el final!\n\n<BL>Administrado por Shun_kazami#7014\nIdea original de Jessiewind26#2546\n<R>Versión 7.27",
+	welcome = "<N><b>WBienvenido al juego Simón Dice!</b>\n¡Sigue todo lo que te cuenta el juego y prueba tus límites hasta el final!\n\n<BL>Administrado por Shun_kazami#7014\nIdea original de Jessiewind26#2546\n<R>Versión 7.28",
 	dancar = "¡Baile!",
 	sentar = "¡Siéntate!",
 	confetar = "¡Lanza 5 confetis!",
@@ -526,7 +526,7 @@ lang.es = {
 	cds = "Comandos",
 }
 lang.pl = {
-	welcome = "<N><b>Witaj w module Szymon mówi!</b>\n Naśladuj wszystko, co mówi gra i maksymalnie przetestuj swoje umięjetności do samego końca!\n\n<BL>Oryginalny pomysł z Jessiewind26#2546, Zarządzane przez Shun_kazami#7014\nTłumaczone przez Kozakwiki#0000\n<R>Version 7.27",
+	welcome = "<N><b>Witaj w module Szymon mówi!</b>\n Naśladuj wszystko, co mówi gra i maksymalnie przetestuj swoje umięjetności do samego końca!\n\n<BL>Oryginalny pomysł z Jessiewind26#2546, Zarządzane przez Shun_kazami#7014\nTłumaczone przez Kozakwiki#0000\n<R>Version 7.28",
 	dancar = "Zatańcz!",
 	sentar = "Usiądź!",
 	confetar = "Wyrzuć 5 razy confetti!",
@@ -951,7 +951,7 @@ end
 function eventChatCommand(name,message)
 	if unlocked == true then
 		if message == "help" then showMenu(name,0x185412,150,125,500,148,text.help,text.hcontent); end
-		if message == "changelog" then showMenu(name,0x808080,150,145,500,100,"Changelog - Version 7.27","• Added new maps\n• Physical consumables cannot be used anymore\n• Translation text fixes"); end
+		if message == "changelog" then showMenu(name,0x808080,150,145,500,90,"Changelog - Version 7.28","• More translation text fixes"); end
 		if message == "credits" then showMenu(name,0x808080,150,135,500,158,"Credits","<font size='12'><b>The following people were responsible for taking such good care of this script to this day:</b>\n\n• Jessiewind26#2546 (2014-2019, 2023-2025)\n• Nasus_assassin#1534 (2019-2020)\n• Rakan_raster#0000 (2020-2022)\n• Dhanny_mheyran#6701 (2022-2023)\n• Shun_kazami#7014 (2025-)"); end
 		if verifyNinjas(name) == true then
 			if(message:sub(0,5) == "stmsg") then
@@ -2646,15 +2646,15 @@ function eventLoop(passado,faltando)
 	if unlocked == true then
 		local tempo=math.floor(faltando/1000)
 		if active == -2 and testmode == false then
-			ui.setMapName("<N>"..text.mices.."   <G>|   <J><b>"..text.version.." 7.27</b><")
+			ui.setMapName("<N>"..text.mices.."   <G>|   <J><b>"..text.version.." 7.28</b><")
 		elseif active == -2 and testmode == true then
-			ui.setMapName("<N>"..text.mices2.."   <G>|   <J><b>"..text.version.." 7.27</b><")
+			ui.setMapName("<N>"..text.mices2.."   <G>|   <J><b>"..text.version.." 7.28</b><")
 		elseif active == -1 and vivo >= 1 then
-			ui.setMapName("<VP>"..text.fim.."<b>"..tempo.."</b> "..text.segundos.."   <G>|   <J><b>"..text.version.." 7.27</b><")
+			ui.setMapName("<VP>"..text.fim.."<b>"..tempo.."</b> "..text.segundos.."   <G>|   <J><b>"..text.version.." 7.28</b><")
 		elseif active == -1 and vivo <= 0 then
-			ui.setMapName("<N>"..text.dofim.."<b>"..tempo.."</b> "..text.segundos.."   <G>|   <J><b>"..text.version.." 7.27</b><")
+			ui.setMapName("<N>"..text.dofim.."<b>"..tempo.."</b> "..text.segundos.."   <G>|   <J><b>"..text.version.." 7.28</b><")
 		elseif active >= 0 then
-			ui.setMapName(""..text.mestre.."   <G>|   <N>"..text.map.." : <V>"..tfm.get.room.currentMap.."   <G>|   <N>"..text.mice.." : <V>"..vivo.." / "..rato.."   <G>|   <N>"..text.round.." : <V>"..rodada.."   <G>|   <J><b>"..text.version.." 7.27</b><")
+			ui.setMapName(""..text.mestre.."   <G>|   <N>"..text.map.." : <V>"..tfm.get.room.currentMap.."   <G>|   <N>"..text.mice.." : <V>"..vivo.." / "..rato.."   <G>|   <N>"..text.round.." : <V>"..rodada.."   <G>|   <J><b>"..text.version.." 7.28</b><")
 		end
 		if testmode == true then
 			if rato < 2 then
