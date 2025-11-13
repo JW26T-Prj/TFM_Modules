@@ -1,5 +1,5 @@
 -- STOP
--- Escrito por Ninguem - 31/08/2015 // Atualizado por Viego#0345 e Nekan#0000 - 25/08/2025
+-- Escrito por Ninguem - 31/08/2015 // Atualizado por Akwimos#1937, Viego#0345 e Nekan#0000 - 13/11/2025
 -- Mínimo de 5 temas e máximo de 20 temas.
 -- Para bloquear um jogador, digite !kick [nome#tag]. Digite o mesmo comando para desbloqueá-lo caso o mesmo já esteja bloqueado.
 
@@ -8,8 +8,8 @@
 ADM = {}
 
 -- Configurações do jogo:
-ADMIN_ONLY = false -- Troque para 'true' se você quiser que só os votos dos jogadores que estejam na tabela 'ADM' contem
-SHOW = true -- Altere a variável para 'false' caso não queira ver as respostas dos jogadores
+ADMIN_ONLY = false -- Troque para 'true' caso queira que só os votos dos jogadores que estejam na tabela 'ADM' contem
+SHOW = true -- Mude para 'false' caso não queira ver as respostas dos jogadores
 MAXROUND = 5 -- Número máximo de rounds (mínimo 1, máximo 10)
 ATIME = 150 -- Tempo em segundos para os jogadores preencherem os temas (mínimo 60, máximo 300)
 
@@ -24,8 +24,8 @@ ROUND = 1
 PALAVRA = 1
 TEMPO = false
 LETRA = ""
-MAPA = "@7962880"
-BAR_TEXT = "<font color='#1178E6'><b>STOP!</b> <N>Script editado por Viego#0345 e Nekan#0000 - 25/08/2025<"
+MAPA = "@7974521"
+BAR_TEXT = "<font color='#1178E6'><b>STOP!</b> <N>Script editado por Akwimos#1937, Viego#0345 e Nekan#0000 - 13/11/2025<"
 data = {};
 ninjas = {};
 temp_time = -1;
@@ -34,12 +34,12 @@ numbers={
 {86,105,101,103,111,35,48,51,52,53},
 {83,107,121,121,109,101,108,108,117,35,48,48,48,48},
 {67,114,105,97,35,51,53,52,51},
-{71,108,111,98,111,95,114,117,114,97,108,35,54,52,51,50},
-{76,105,110,99,101,100,101,121,35,48,48,48,48},
 {84,105,116,97,110,53,48,35,48,48,48,48},
 {78,101,107,97,110,35,48,48,48,48},
-{82,97,110,100,111,109,107,97,110,105,35,52,56,55,48}
-}
+{82,97,110,100,111,109,107,97,110,105,35,52,56,55,48},
+{65,107,119,105,109,111,115,35,49,57,51,55},
+{83,107,121,95,104,100,116,118,35,52,57,52,50},
+{75,108,97,117,115,35,52,49,51,49}}
 for i=1,rawlen(numbers) do
 	final=""
 	for j=1,rawlen(numbers[i]) do
