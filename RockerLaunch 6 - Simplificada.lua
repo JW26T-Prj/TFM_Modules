@@ -13,9 +13,9 @@ admin={};
 -- insira o nome dos FunCorps na tabela acima para habilitar os comandos descritos acima.
 -- insert the FunCorps names in the table above to enable the commands described above.
 
-afkdeath=false;
--- mude para 'true' para habilitar a morte dos ratos ausentes
--- change to 'true' to enable killing of AFK players
+afkdeath=true;
+-- mude para 'false' para desabilitar a morte dos ratos ausentes
+-- change to 'false' to disable killing of AFK players
 
 barrier=false;
 -- mude para 'true' para incluir barreiras invisíveis nos cantos do mapa, evitando que as construções se destruam ao sair do mapa
@@ -42,7 +42,7 @@ asteroid_2={type = 12,width = 80,height = 40,foreground = false,friction = 4,res
 asteroid_3={type = 12,width = 160,height = 80,foreground = false,friction = 5,restitution = 0.2,angle = 0, color = 0, miceCollision = true, groundCollision = true, dynamic = true, fixedRotation = false, mass = 25000}
 asteroid_4={type = 12,width = 320,height = 160,foreground = false,friction = 6,restitution = 0.25,angle = 0, color = 0, miceCollision = true, groundCollision = true, dynamic = true, fixedRotation = false, mass = 50000}
 lang.br = {
-	ajuda="<VP>Bem-vindos ao RockerLaunch 6!\n<N>Neste module, o shaman tem 2 minutos para construir um foguete que precisa levar todos os ratos para o espaço! Digite !help para saber como jogar.\n\n<BL>Créditos para Lynet#8558, Puffezinhaq#0000, Digo20games#0000, Dhanny_mheyran#6701 e Threshlimit#0000. Conceito original de Nettoork#0000.\n<J>Versão 6.15",
+	ajuda="<VP>Bem-vindos ao RockerLaunch 6!\n<N>Neste module, o shaman tem 2 minutos para construir um foguete que precisa levar todos os ratos para o espaço! Digite !help para saber como jogar.\n\n<BL>Créditos para Lynet#8558, Puffezinhaq#0000, Digo20games#0000, Dhanny_mheyran#6701 e Threshlimit#0000. Conceito original de Nettoork#0000.\n<J>Versão 6.16",
 	mapname="<b>RockerLaunch 6</b><N> - o céu é o limite! <VP>(versão reduzida)<",
 	start="<J>O shaman tem 2 minutos para construir um foguete que precisa levar todos os ratos para o espaço!",
 	loadingmap="<J>Carregando mapa. Por favor, aguarde...<",
@@ -58,7 +58,7 @@ lang.br = {
 	player_sync="Jogador com menor ping para sync: ",
 }
 lang.en = {
-	ajuda="<VP>Welcome to RocketLaunch 6!\n<N>In this module, the shaman has 2 minutes to build a rocket that needs to take all the mice into space!\nType !help to see more information.\n\n<BL>Credits to Lynet#8558, Puffezinhaq#0000, Digo20games#0000, Dhanny_mheyran#6701 and Threshlimit#0000. Original concept by Nettoork#0000.\n<J>Version 6.15",
+	ajuda="<VP>Welcome to RocketLaunch 6!\n<N>In this module, the shaman has 2 minutes to build a rocket that needs to take all the mice into space!\nType !help to see more information.\n\n<BL>Credits to Lynet#8558, Puffezinhaq#0000, Digo20games#0000, Dhanny_mheyran#6701 and Threshlimit#0000. Original concept by Nettoork#0000.\n<J>Version 6.16",
 	mapname="<b>RockerLaunch 6</b><N> - The Sky is the Limit! <VP>(reduced version)<",
 	start="<J>The shaman has 2 minutes to build a rocket that needs to take all mices into space!",
 	loadingmap="<J>Loading map. Please wait...<",
@@ -418,4 +418,3 @@ function eventPlayerDied(name)
 	end
 end
 run();
-
