@@ -1,6 +1,6 @@
 -- Salto em Distância / Long Jump
 -- Feito por / made by Patrick_mahomes#1795
--- Version 3.2
+-- Version 3.3
 
 admin={} -- insira o nome dos FunCorps aqui! / insert the FunCorp names here!
 
@@ -56,7 +56,7 @@ function showMessage(message,name)
 	end
 end
 function updateBar()
-	ui.setMapName("<D>Salto em Distância / Long Jump <V><b>v3.2</b> <CH>- by Patrick_mahomes#1795<")
+	ui.setMapName("<D>Salto em Distância / Long Jump <V><b>v3.3</b> <CH>- by Patrick_mahomes#1795<")
 end
 function eventChatCommand(n,m)
 	if verifyNinjas(n) == true or verifyAdmin(n) == true then
@@ -116,14 +116,14 @@ function eventNewPlayer(n)
 		tfm.exec.respawnPlayer(n)
 		tfm.exec.giveCheese(n)
 		data[n].loop=0
-		ui.addTextArea(1,"<font size='18'><b><font face='Courier New'>0 ||||||| 6000 |||||| 12000 ||||||| 18000 |||||| 24000 ||||>",nil,20,20,670,20,0x000001,0x000001,0.8,true)
-		for i=1,67 do
-			local a=500*i
-			ui.addTextArea(100+i,"<p align='center'><b><font size='14'><N>"..a.."",n,a+715,4074,60,20,0x101010,0x020202,0.75,false)
+		ui.addTextArea(1,"<font size='18'><b><font face='Courier New'>0 ||||||| 8000 |||||| 16000 ||||||| 24000 |||||| 32000 ||||>",nil,20,20,670,20,0x000001,0x000001,0.8,true)
+		for i=0,159 do
+			local a=250*i
+			ui.addTextArea(100+i,"<p align='center'><b><font size='14'><N>"..a.."",n,a+680,4074,60,20,0x101010,0x020202,0.75,false)
 		end
 		ui.setBackgroundColor("#000000")
 		tfm.exec.setPlayerScore(n,0,false)
-		showMessage("<VP>Jogo de salto em distância feito por (Long Jump Module made by) Patrick_mahomes#1795. <b>Versão / Version 3.2</b>\n\n<N>Digite /mort para retornar ao ponto inicial sempre que necessário.\nType /mort to return to the start point when necessary",n)
+		showMessage("<VP>Jogo de salto em distância feito por (Long Jump Module made by) Patrick_mahomes#1795. <b>Versão / Version 3.3</b>\n\n<N>Digite /mort para retornar ao ponto inicial sempre que necessário.\nType /mort to return to the start point when necessary",n)
 		for a=1,5 do tfm.exec.addImage("182d6e2305b.png","?1",math.random(100,20000),math.random(-850,450),n) end
 		for b=1,5 do tfm.exec.addImage("182d6e2305b.png","?1",math.random(100,20000),math.random(-850,450),n,-1,1) end
 		for c=1,7 do tfm.exec.addImage("182d6e1e45c.png","?1",math.random(100,20000),math.random(-850,450),n) end
@@ -181,7 +181,7 @@ function eventLoop(e,r)
 			data[name].x=tfm.get.room.playerList[name].x-715
 			if data[name].x > 0 then
 				ui.addTextArea(2,"<p align='center'><font size='20'><b><font color='#800000'><font face='Courier New'>"..data[name].x.."",name,700,18,80,22,0xff0000,0x800000,0.9,true)
-				ui.addTextArea(3,"",name,30,48,data[name].x/44,5,0xff0000,0x800000,0.9,true)
+				ui.addTextArea(3,"",name,30,48,data[name].x/63,5,0xff0000,0x800000,0.9,true)
 				if tfm.get.room.playerList[name].vx <= 3 and tfm.get.room.playerList[name].x >= 715 and tfm.get.room.playerList[name].y >= 4038 then
 					showMessage("<BL>Distância percorrida / Travelled distance : <b>"..data[name].x.."</b> pixels.",name)
 					data[name].freezed=false
@@ -189,7 +189,7 @@ function eventLoop(e,r)
 					if data[name].x > data[name].recorde then
 						data[name].recorde=data[name].x
 						showMessage("<VP>Você atingiu sua maior pontuação / You reached your high score : <b>"..data[name].x.." pixels</b>.",name)
-						ui.addTextArea(4,"",name,30+data[name].recorde/44,48,1,5,0x00ff00,0x008000,0.9,true)
+						ui.addTextArea(4,"",name,30+data[name].recorde/63,48,1,5,0x00ff00,0x008000,0.9,true)
 						ui.addTextArea(80,"",name,data[name].x+803,50,6,5990,0x00ff00,0x008000,0.8,false)
 						tfm.exec.setPlayerScore(name,data[name].x,false)
 					end
@@ -197,7 +197,7 @@ function eventLoop(e,r)
 						recorde=data[name].x
 						recorder=name
 						showMessage("<J>Novo recorde da sala / New room high score : <b>"..data[name].x.." pixels</b>, feito por (made by) "..name.."!")
-						ui.addTextArea(5,"",nil,30+recorde/44,48,1,5,0xff00ff,0x800080,0.9,true)
+						ui.addTextArea(5,"",nil,30+recorde/63,48,1,5,0xff00ff,0x800080,0.9,true)
 						updateBar()
 						ui.addTextArea(81,"",nil,data[name].x+803,50,6,5990,0xff00ff,0x800080,0.8,false)
 						tfm.exec.setPlayerScore(name,data[name].x,false)
