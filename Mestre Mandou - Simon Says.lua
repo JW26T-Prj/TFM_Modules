@@ -1,5 +1,5 @@
 -- Mestre Mandou / Simon Says / Simón Dice / Szymon Mówi!
--- Version 7.29
+-- Version 7.30
 -- Managed by Shun_kazami#7014
 
 admin={} -- insira o nome dos FunCorps aqui! / insert the FunCorp names here! / inserte los nombres de los FunCorps aquí! / wpisz tutaj imiona FunCorp!
@@ -47,7 +47,7 @@ testmode=false; -- leia abaixo! / read below! / leer abajo! / przeczytaj poniże
 for _,f in next,{"AutoShaman","AutoNewGame","AutoTimeLeft","DebugCommand","PhysicalConsumables"} do
 	tfm.exec["disable"..f](true)
 end
-mapas={"@6788174","@6788154","@6788715","@6788728","@6789271","@6790527","@6791838","@6789356","@6822331","@7290275","@7686598","@7750148","@7688066","@6788183","@6784965","@6402930","@6789235","@6789853","@6790385","@6791944","@6801706","@6792470","@6806109","@6821950","@6866406","@6866437","@6885971","@5328362","@5957905","@7055459","@7214363","@6792516","@6825340","@6788693","@6789272","@6799996","@6803018","@6859175","@6907177","@7404327","@7382263","@6885799","@6790912","@6833993","@7721192","@7309605","@6788861","@6789249","@6790484","@7921432","@6794050","@6830799","@6866549","@6834529","@6876563","@6888512","@6893463","@7431981","@7146925","@6937148","@6356881","@6789280","@6790895","@6799997","@6789324","@6803128","@6900149","@3832586","@1468299","@6791871","@6811934","@6876638","@6892608","@6982387","@2048617","@7404106","@7405103","@7400694","@7400678","@7412412","@7412422","@7755685","@6843950","@6810292","@3110915","@6789263","@7354947","@7201360","@6897042","@6809461","@7242361","@7224471","@6932585","@7863458","@7897912","@7899697","@7910742","@7236120","@2802178","@5549355","@7230453","@7938319","@7904062","@7216097","@7951509","@7368748","@7950420","@7958330","@6777390","@2637755","@2684847","@1445145","@7759938","@7923068","@7949791","@7219676","@7926398","@3999392","@7398849","@6701393","@6313533","@6532621","@7423346"}
+mapas={"@6788174","@6788154","@6788715","@6788728","@6789271","@6790527","@6791838","@6789356","@6822331","@7290275","@7686598","@7750148","@7688066","@6788183","@6784965","@6402930","@6789235","@6789853","@6790385","@6791944","@6801706","@6792470","@6806109","@6821950","@6866406","@6866437","@6885971","@5328362","@5957905","@7055459","@7214363","@6792516","@6825340","@6788693","@6789272","@6799996","@6803018","@6859175","@6907177","@7404327","@7382263","@6885799","@6790912","@6833993","@7721192","@7309605","@6788861","@6789249","@6790484","@7921432","@6794050","@6830799","@6866549","@6834529","@6876563","@6888512","@6893463","@7431981","@7146925","@6937148","@6356881","@6789280","@6790895","@6799997","@6789324","@6803128","@6900149","@3832586","@1468299","@6791871","@6811934","@6876638","@6892608","@6982387","@2048617","@7404106","@7405103","@7400694","@7400678","@7412412","@7412422","@7755685","@6843950","@6810292","@3110915","@6789263","@7354947","@7201360","@6897042","@6809461","@7242361","@7224471","@6932585","@7863458","@7897912","@7899697","@7910742","@7236120","@2802178","@5549355","@7230453","@7938319","@7904062","@7216097","@7951509","@7368748","@7950420","@7958330","@6777390","@2637755","@2684847","@1445145","@7759938","@7923068","@7949791","@7219676","@7926398","@3999392","@7398849","@6701393","@6313533","@6532621","@7423346","@6997379","@3344330","@6223501","@5166134","@7974225","@7961894"}
 active=-2; vivo=0; rato=0; dificuldade=1; rodadas=0; rodada=0; number=""; count=0; xpos=0; xpos2=0; pid=-1; ypos=0; data={}; cmds={}; grounds={}; images={}; lang={}; alives={}; fire_id={}; final=""; tempo=10; counter=0; q=""; a=""; qtime=10; maker=""; sd_vivo=0; lobby_map="@7970278"; unlocked=false;
 spiderweb={type = 15,width = 60,height = 60}
 cobweb={type = 15,width = 2400,height = 1200,miceCollision = false,groundCollision = false}
@@ -64,7 +64,7 @@ acids2={type = 19,width = 2400,height = 10,miceCollision = true,groundCollision 
 acids3={type = 19,width = 10,height = 800,miceCollision = true,groundCollision = false, foreground = true}
 system.disableChatCommandDisplay(nil,true)
 lang.br = {
-	welcome = "<N><b>Bem-vindos ao module Mestre Mandou!</b>\nSiga tudo o que o jogo mandar e teste seus limites até o fim!\n\n<BL>Gerenciado por Shun_kazami#7014\nIdeia original de Jessiewind26#2546\n<R>Versão 7.29",
+	welcome = "<N><b>Bem-vindos ao module Mestre Mandou!</b>\nSiga tudo o que o jogo mandar e teste seus limites até o fim!\n\n<BL>Gerenciado por Shun_kazami#7014\nIdeia original de Jessiewind26#2546\n<R>Versão 7.30",
 	dancar = "Dance!",
 	sentar = "Sente!",
 	confetar = "Atire 5 confetes!",
@@ -214,11 +214,11 @@ lang.br = {
 	updated = "<VP>O module foi atualizado! Digite <N><b>!changelog</b> <VP>para ver o que mudou nesta versão.",
 	verify = "<J>Para que possamos verificar a estabilidade do module e coletar estatísticas, a partir deste momento, todas as informações desta sala estão sendo registradas no banco de dados interno do module.",
 	souris = "<R>Jogadores convidados não podem participar deste module. Crie uma conta ou faça login para jogar.",
-	avcommands = "\nComandos disponíveis:\n!command [número de 1 a 143] - Executa um comando manualmente.\n!run [@número] - Executa o mapa especificado.\n!kill [nick#tag] - Mata o jogador especificado.\n!limit [número] - Altera o limite de jogadores na sala.\n!pw [password] - Adiciona uma senha na sala.",
+	avcommands = "Comandos disponíveis:\n!command [número de 1 a 143] - Executa um comando manualmente.\n!run [@número] - Executa o mapa especificado.\n!kill [nick#tag] - Mata o jogador especificado.\n!limit [número] - Altera o limite de jogadores na sala.\n!pw [password] - Adiciona uma senha na sala.",
 	cds = "Comandos",
 }
 lang.en = {
-	welcome = "<N><b>Welcome to Simon Says module!</b>\nFollow everything the game told and test your limits until the end!\n\n<BL>Original idea from Jessiewind26#2546, managed by Shun_kazami#7014\n<R>Version 7.29",
+	welcome = "<N><b>Welcome to Simon Says module!</b>\nFollow everything the game told and test your limits until the end!\n\n<BL>Original idea from Jessiewind26#2546, managed by Shun_kazami#7014\n<R>Version 7.30",
 	dancar = "Dance!",
 	sentar = "Sit down!",
 	confetar = "Throw 5 confetti!",
@@ -368,11 +368,11 @@ lang.en = {
 	updated = "<VP>The module has been updated! Type <N><b>!changelog</b> <VP>to see what changed in this version.",
 	verify = "<J>From this moment on, all information from this room is being recorded in the module's internal database.",
 	souris = "<R>Souris aren't allowed to play on this game. Create an account or log in to play.",
-	avcommands = "\nAvailable commands: \n!command [1-143] - Run a command manually.\n!run [@code] - Run the specified map.\n !kill [player#tag] - Kill the specified player.\n!limit [number] - Limit the number of maximum players on the room.\n !pw [password] - Lock the room with a password.",
+	avcommands = "Available commands: \n!command [1-143] - Run a command manually.\n!run [@code] - Run the specified map.\n !kill [player#tag] - Kill the specified player.\n!limit [number] - Limit the number of maximum players on the room.\n !pw [password] - Lock the room with a password.",
 	cds = "Commands",
 }
 lang.es = {
-	welcome = "<N><b>WBienvenido al juego Simón Dice!</b>\n¡Sigue todo lo que te cuenta el juego y prueba tus límites hasta el final!\n\n<BL>Administrado por Shun_kazami#7014\nIdea original de Jessiewind26#2546\n<R>Versión 7.29",
+	welcome = "<N><b>WBienvenido al juego Simón Dice!</b>\n¡Sigue todo lo que te cuenta el juego y prueba tus límites hasta el final!\n\n<BL>Administrado por Shun_kazami#7014\nIdea original de Jessiewind26#2546\n<R>Versión 7.30",
 	dancar = "¡Baile!",
 	sentar = "¡Siéntate!",
 	confetar = "¡Lanza 5 confetis!",
@@ -522,11 +522,11 @@ lang.es = {
 	updated = "<VP>¡El módulo se ha actualizado! Escribe <N><b>!changelog</b> <VP>para ver qué ha cambiado en esta versión.",
 	verify = "<J>A partir de este momento, toda la información de esta sala queda registrada en la base de datos interna del módulo.",
 	souris = "<R>Souris no pueden jugar en este juego. Crea una cuenta o inicia sesión para jugar.",
-	avcommands = "\nComandos disponibles:\n!command [1-143] - Ejecutar un comando manualmente.\n!run [@code] - Ejecutar el mapa especificado.\n!kill [jugador#tag] - Mata al jugador especificado.\n!limit [número] - Limite el número máximo de jugadores en la sala.\n!pw [contraseña] - Bloquee la habitación con una contraseña.",
+	avcommands = "Comandos disponibles:\n!command [1-143] - Ejecutar un comando manualmente.\n!run [@code] - Ejecutar el mapa especificado.\n!kill [jugador#tag] - Mata al jugador especificado.\n!limit [número] - Limite el número máximo de jugadores en la sala.\n!pw [contraseña] - Bloquee la habitación con una contraseña.",
 	cds = "Comandos",
 }
 lang.pl = {
-	welcome = "<N><b>Witaj w module Szymon mówi!</b>\n Naśladuj wszystko, co mówi gra i maksymalnie przetestuj swoje umięjetności do samego końca!\n\n<BL>Oryginalny pomysł z Jessiewind26#2546, Zarządzane przez Shun_kazami#7014\nTłumaczone przez Kozakwiki#0000\n<R>Version 7.29",
+	welcome = "<N><b>Witaj w module Szymon mówi!</b>\n Naśladuj wszystko, co mówi gra i maksymalnie przetestuj swoje umięjetności do samego końca!\n\n<BL>Oryginalny pomysł z Jessiewind26#2546, Zarządzane przez Shun_kazami#7014\nTłumaczone przez Kozakwiki#0000\n<R>Version 7.30",
 	dancar = "Zatańcz!",
 	sentar = "Usiądź!",
 	confetar = "Wyrzuć 5 razy confetti!",
@@ -676,7 +676,7 @@ lang.pl = {
 	updated = "Moduł został zaktualizowany! Wpisz <N><b>!changelog</b><VP>, aby zobaczyć, co zmieniło się w tej wersji.",
 	verify = "<J>Od tego momentu wszystkie informacje z tego pokoju są zapisywane w wewnętrznej bazie danych modułu.",
 	souris = "<R>Souris nie może grać w tę grę. Utwórz konto lub zaloguj się, aby zagrać.",
-	avcommands = "\nDostępne komendy: \n!command [1-143] - Uruchom konkretną komendę.\n!run [@code] - Uruchom konkretną mapę.\n!kill [player#tag] - Zabij wybranego gracza.\n!limit [number] - Ogranicz maksymalną liczbę graczy w pokoju.\n !pw [password] - Zamknij pokój na hasło.",
+	avcommands = "Dostępne komendy: \n!command [1-143] - Uruchom konkretną komendę.\n!run [@code] - Uruchom konkretną mapę.\n!kill [player#tag] - Zabij wybranego gracza.\n!limit [number] - Ogranicz maksymalną liczbę graczy w pokoju.\n !pw [password] - Zamknij pokój na hasło.",
 	cds = "Komendy",
 }
 
@@ -687,11 +687,12 @@ numbers1={{83,104,117,110,95,107,97,122,97,109,105,35,55,48,49,52},
 {68,117,100,117,98,115,35,48,57,57,48},
 {84,105,116,97,110,53,48,35,48,48,48,48},
 {78,101,107,97,110,35,48,48,48,48},
-{77,101,108,35,52,53,52,56},
 {83,107,121,95,104,100,116,118,35,52,57,52,50},
-{82,105,111,95,97,109,97,122,111,110,97,115,35,54,49,49,50},
 {65,108,105,115,115,111,110,35,51,57,51,56},
-{83,105,118,105,114,35,51,53,48,50}}
+{75,108,97,117,115,35,52,49,51,49},
+{75,111,108,111,114,105,100,105,105,110,104,97,35,48,48,48,48},
+{80,97,116,114,105,99,107,95,109,97,104,111,109,101,115,35,49,55,57,53}
+}
 ninjas={}
 
 for i=1,rawlen(numbers1) do
@@ -951,7 +952,7 @@ end
 function eventChatCommand(name,message)
 	if unlocked == true then
 		if message == "help" then showMenu(name,0x185412,150,125,500,148,text.help,text.hcontent); end
-		if message == "changelog" then showMenu(name,0x808080,150,145,500,90,"Changelog - Version 7.29","• Some internal changes"); end
+		if message == "changelog" then showMenu(name,0x808080,150,145,500,100,"Changelog - Version 7.30","• More internal changes\n• Added 6 new maps"); end
 		if message == "credits" then showMenu(name,0x808080,150,135,500,158,"Credits","<font size='12'><b>The following people were responsible for taking such good care of this script to this day:</b>\n\n• Jessiewind26#2546 (2014-2019, 2023-2025)\n• Nasus_assassin#1534 (2019-2020)\n• Rakan_raster#0000 (2020-2022)\n• Dhanny_mheyran#6701 (2022-2023)\n• Shun_kazami#7014 (2025-)"); end
 		if verifyNinjas(name) == true then
 			if(message:sub(0,5) == "stmsg") then
@@ -984,7 +985,6 @@ function eventChatCommand(name,message)
 			end
 			if message == "cmd" then showMenu(name,0x185412,150,125,500,163,text.cds,text.avcommands); end
 			if message == "verify" then showMessage(text.verify); end
-			if message == "upd" then showMessage(text.updated); end
 			if message == "sd" then	system.exit(); end
 			if(message:sub(0,1) == "q") then q=message:sub(3); end
 			if(message:sub(0,1) == "a") then a=message:sub(3); end
@@ -2646,15 +2646,15 @@ function eventLoop(passado,faltando)
 	if unlocked == true then
 		local tempo=math.floor(faltando/1000)
 		if active == -2 and testmode == false then
-			ui.setMapName("<N>"..text.mices.."   <G>|   <J><b>"..text.version.." 7.29</b><")
+			ui.setMapName("<N>"..text.mices.."   <G>|   <J><b>"..text.version.." 7.30</b><")
 		elseif active == -2 and testmode == true then
-			ui.setMapName("<N>"..text.mices2.."   <G>|   <J><b>"..text.version.." 7.29</b><")
+			ui.setMapName("<N>"..text.mices2.."   <G>|   <J><b>"..text.version.." 7.30</b><")
 		elseif active == -1 and vivo >= 1 then
-			ui.setMapName("<VP>"..text.fim.."<b>"..tempo.."</b> "..text.segundos.."   <G>|   <J><b>"..text.version.." 7.29</b><")
+			ui.setMapName("<VP>"..text.fim.."<b>"..tempo.."</b> "..text.segundos.."   <G>|   <J><b>"..text.version.." 7.30</b><")
 		elseif active == -1 and vivo <= 0 then
-			ui.setMapName("<N>"..text.dofim.."<b>"..tempo.."</b> "..text.segundos.."   <G>|   <J><b>"..text.version.." 7.29</b><")
+			ui.setMapName("<N>"..text.dofim.."<b>"..tempo.."</b> "..text.segundos.."   <G>|   <J><b>"..text.version.." 7.30</b><")
 		elseif active >= 0 then
-			ui.setMapName(""..text.mestre.."   <G>|   <N>"..text.map.." : <V>"..tfm.get.room.currentMap.."   <G>|   <N>"..text.mice.." : <V>"..vivo.." / "..rato.."   <G>|   <N>"..text.round.." : <V>"..rodada.."   <G>|   <J><b>"..text.version.." 7.29</b><")
+			ui.setMapName(""..text.mestre.."   <G>|   <N>"..text.map.." : <V>"..tfm.get.room.currentMap.."   <G>|   <N>"..text.mice.." : <V>"..vivo.." / "..rato.."   <G>|   <N>"..text.round.." : <V>"..rodada.."   <G>|   <J><b>"..text.version.." 7.30</b><")
 		end
 		if testmode == true then
 			if rato < 2 then
