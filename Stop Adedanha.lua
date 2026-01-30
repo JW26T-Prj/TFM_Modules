@@ -1,5 +1,5 @@
 -- STOP
--- Escrito por Ninguem - 31/08/2015 // Atualizado por Akwimos#1937, Viego#0345 e Nekan#0000 - 13/11/2025
+-- Escrito por Ninguem - 31/08/2015 // Atualizado por Akwimos#1937, Viego#0345 e Nekan#0000 - 29/01/2026
 -- Mínimo de 5 temas e máximo de 20 temas.
 -- Para bloquear um jogador, digite !kick [nome#tag]. Digite o mesmo comando para desbloqueá-lo caso o mesmo já esteja bloqueado.
 
@@ -10,8 +10,8 @@ ADM = {}
 -- Configurações do jogo:
 ADMIN_ONLY = false -- Troque para 'true' caso queira que só os votos dos jogadores que estejam na tabela 'ADM' contem
 SHOW = true -- Mude para 'false' caso não queira ver as respostas dos jogadores
-MAXROUND = 5 -- Número máximo de rounds (mínimo 1, máximo 10)
-ATIME = 150 -- Tempo em segundos para os jogadores preencherem os temas (mínimo 60, máximo 300)
+MAXROUND = 5 -- Número máximo de rounds (mínimo 1, máximo 15)
+ATIME = 150 -- Tempo em segundos para os jogadores preencherem os temas (mínimo 60, máximo 360)
 
 -- NÃO MEXA EM NADA A PARTIR DESTA LINHA!
 ----------------------------------------------------------------------------------------------------
@@ -25,7 +25,7 @@ PALAVRA = 1
 TEMPO = false
 LETRA = ""
 MAPA = "@7974521"
-BAR_TEXT = "<font color='#1178E6'><b>STOP!</b> <N>Script editado por Akwimos#1937, Viego#0345 e Nekan#0000 - 13/11/2025<"
+BAR_TEXT = "<font color='#1178E6'><b>STOP!</b> <N>Script editado por Akwimos#1937, Viego#0345 e Nekan#0000 - 29/01/2026<"
 data = {};
 ninjas = {};
 temp_time = -1;
@@ -93,10 +93,10 @@ function isAdm(p)
 end
 
 function checkVariables()
-	if MAXROUND < 1 or MAXROUND > 10 then
+	if MAXROUND < 1 or MAXROUND > 15 then
 		system.exit();
 	end
-	if ATIME < 60 or ATIME > 300 then
+	if ATIME < 60 or ATIME > 360 then
 		system.exit();
 	end
 end
@@ -625,3 +625,4 @@ checkVariables()
 carregaMapa()
 ui.setMapName(BAR_TEXT)
 atualizaCat(true)
+
