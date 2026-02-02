@@ -1,5 +1,4 @@
 -- WereMice Revamped
--- Feito por / made by Patrick_mahomes#1795
 -- Agradecimentos a Spectra_phantom#6089 pela ideia original do jogo.
 -- Thanks to Spectra_phantom#6089 to the original idea.
 
@@ -25,7 +24,7 @@ jogadores={assassinos={},detetives={},medicos={},vivos=0,lista={}}
 quant={assassinos=0,detetives=0,medicos=0,vitimas=0,vivos=0}
 limites={assassinos=0,detetives=0,medicos=0}
 modo="inicial"; contador=0; count=0; contador_display=15; rodada=0; data={}; templist={}; ninjas={}; lang={}; display=""; unlocked=false;
-mapas={"@3398791","@4477478","@5832272","@6390711","@6907177","@6958861","@7854016","@7896560","@7959702","@7959756","@7963067","@7963083"}
+mapas={"@3398791","@4477478","@5832272","@6390711","@6907177","@6958861","@7854016","@7896560","@7959702","@7959756","@7963067","@7963083","@7823336","@5568402","@1673888","@7932254","@7895282"}
 system.disableChatCommandDisplay(nil,true)
 
 lang.br = {
