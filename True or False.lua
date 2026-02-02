@@ -7,17 +7,25 @@ end
 blue_ground={type = 12,width = 380,height = 100,foregound = 0,friction = 0.0,restitution = 0.0,angle = 0,color = 0xFFFFFF,miceCollision = true,groundCollision = false,dynamic = true, fixedRotation = true, mass = 999999}
 red_ground={type = 12,width = 380,height = 100,foregound = 0,friction = 0.0,restitution = 0.0,angle = 0,color = 0xFFFFFF,miceCollision = true,groundCollision = false,dynamic = true, fixedRotation = true, mass = 999999}
 center_ground={type = 12,width = 20,height = 300,foregound = 0,friction = 0.0,restitution = 0.0,angle = 0,color = 0xFFFFFF,miceCollision = true,groundCollision = true,dynamic = false}
-tfm.exec.setRoomMaxPlayers(35)
+if tfm.get.room.isTribeHouse == false then tfm.exec.setRoomMaxPlayers(35); end
 limits={questions=10,time=7,mices_alive=0}
 questions={question="",answer="",round=0}
 current_mode=""; answer_time=20; remain_time=0; game_map="@7967059"; ninjas={};
-numbers1={{78,117,114,122,97,107,35,55,53,50,53},
-{83,107,121,121,109,101,108,108,117,35,48,48,48,48},
-{76,97,99,111,115,116,101,35,56,57,55,50},
+numbers1={{83,107,121,121,109,101,108,108,117,35,48,48,48,48},
 {86,105,101,103,111,35,48,51,52,53},
 {71,105,108,108,35,50,57,54,54},
-{67,97,115,115,105,111,112,101,105,97,35,49,55,52,57},
-{83,104,117,110,95,107,97,122,97,109,105,35,55,48,49,52}}
+{83,104,117,110,95,107,97,122,97,109,105,35,55,48,49,52},
+{71,108,111,98,111,95,114,117,114,97,108,35,54,53,51,50},
+{84,105,116,97,110,53,48,35,48,48,48,48},
+{75,97,122,97,114,105,110,97,35,52,56,55,56},
+{82,117,97,110,98,114,35,57,50,50,55},
+{82,105,118,101,110,35,49,54,51,48},
+{83,107,121,95,104,100,116,118,35,52,57,52,50},
+{75,108,97,117,115,35,52,49,51,49},
+{76,117,105,115,105,110,35,49,55,49,55},
+{78,101,107,97,110,35,48,48,48,48},
+{66,97,114,111,100,105,117,115,35,57,53,54,50},
+{83,101,110,110,97,35,54,49,53,51}}
 for i=1,rawlen(numbers1) do
 	final=""
 	for j=1,rawlen(numbers1[i]) do
@@ -32,9 +40,9 @@ function showMessage(message,name)
 		tfm.exec.chatMessage(message,name)
 	elseif tfm.get.room.isTribeHouse == true then
 		if name == nil then
-			print("<ROSE>[Test Mode] : <br><BL>"..temp_text.."")
+			ui.addPopup(1024,0,temp_text,nil,300,100,200,true)
 		else
-			print("<ROSE>[Test Mode] - "..name.." : <br><BL>"..temp_text.."")
+			ui.addPopup(1025,0,temp_text,name,300,200,200,true)
 		end
 	end
 end
@@ -123,7 +131,7 @@ function eventPopupAnswer(id,name,answer)
 	if id == 10 then
 		if string.len(answer) >= 10 and string.len(answer) <= 170 then
 			questions.question=answer
-			ui.addPopup(11,1,"Click YES if your answer is TRUE.<br>Click NO if your answer is FALSE.",name,350,175,200,true)
+			ui.addPopup(11,1,"Click YES if your answer is TRUE.\nClick NO if your answer is FALSE.",name,350,175,200,true)
 		else
 			ui.addPopup(10,2,"Type your question:",name,350,175,200,true)
 			showMessage("<R>Your question is too large or too short. Please make a new question.",name)
