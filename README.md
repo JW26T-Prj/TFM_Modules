@@ -1,5 +1,5 @@
-> A partir do dia 29 de janeiro de 2026, esta pasta será dada como descontinuada, e todos os scripts presentes nela estarão disponíveis para livre utilização, adaptação e obtenção de seus recursos.
-> As of January 29, 2026, this folder will be discontinued, and all scripts contained within will be available for free use, adaptation, and distribution of their resources.
+> Em breve, esta pasta será dada como descontinuada, e todos os scripts presentes nela estarão disponíveis para livre utilização, adaptação e obtenção de seus recursos.
+> This folder will soon be discontinued. And all scripts contained within will be available for free use, adaptation, and distribution of their resources.
 > Patrick_mahomes#1795
 
 # Welcome to the Transformice public modules folder.
