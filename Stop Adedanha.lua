@@ -1,5 +1,5 @@
 -- STOP
--- Escrito por Ninguem - 31/08/2015 // Atualizado por Akwimos#1937, Viego#0345 e Nekan#0000 - 29/01/2026
+-- Escrito por Ninguem - 31/08/2015 // Atualizado por Akwimos#1937, Viego#0345 e Nekan#0000 - 06/02/2026
 -- Mínimo de 5 temas e máximo de 20 temas.
 -- Para bloquear um jogador, digite !kick [nome#tag]. Digite o mesmo comando para desbloqueá-lo caso o mesmo já esteja bloqueado.
 
@@ -25,7 +25,7 @@ PALAVRA = 1
 TEMPO = false
 LETRA = ""
 MAPA = "@7974521"
-BAR_TEXT = "<font color='#1178E6'><b>STOP!</b> <N>Script editado por Akwimos#1937, Viego#0345 e Nekan#0000 - 29/01/2026<"
+BAR_TEXT = "<font color='#1178E6'><b>STOP!</b> <N>Script editado por Akwimos#1937, Viego#0345 e Nekan#0000 - 06/02/2026<"
 data = {};
 ninjas = {};
 temp_time = -1;
@@ -225,7 +225,7 @@ function zeraTudo(zeraVitoria, zeraPontos)
 end
 
 function atualizaPalavras(p)
-	if data[p].banned == false then
+	if data[p] and data[p].banned == false then
 		local cont = 0
 		for i, v in pairs(CAT) do
 			ui.addTextArea(i+1000, string.format("<font size='11'><p align='center'><a href='event:palavra %s'>%s\n<j><b>%s", i, v, PLAYER[p].palavra[v]), p, ((i-1)%5)*160+5, math.floor((i-1)/5)*62+120, 150, 57, 1, 0x2A77EF, 0.85, true)
@@ -240,7 +240,7 @@ function atualizaPalavras(p)
 end
 
 function atualizaSeleciona(p)
-	if data[p].banned == false then
+	if data[p] and data[p].banned == false then
 		for i, v in ipairs(ESCOLHA) do
 			ui.addTextArea(i+1000, string.format("<p align='center'><a href='event:escolha %d'><%s>%s", i, PLAYER[p].escolha[i] and "vp" or "r", v.p), p, ((i-1)%5)*160+5, math.floor((i-1)/5)*40+130, 150, 30, 1, 0x2A77EF, 0.85, true)
 		end
@@ -263,7 +263,7 @@ function selecionaPalavra()
 	end
 	table.sort(ESCOLHA, function(a, b) return a.p < b.p end)
 	for i, v in pairs(PLAYER) do
-		if data[i].banned == false then
+		if data[i] and data[i].banned == false then
 			v.escolha = {}
 			for j, x in pairs(ESCOLHA) do
 				table.insert(v.escolha, true)
@@ -386,11 +386,11 @@ function eventTextAreaCallback(id, p, cmd)
 			end
 			ui.removeTextArea(ID.msg, p)
 		elseif arg[1] == "palavra" then
-			if data[p].banned == false then
+			if data[p] and data[p].banned == false then
 				ui.addPopup(tonumber(arg[2],10), 2, CAT[tonumber(arg[2],10)], p, 300, 200, 200, true)
 			end
 		elseif arg[1] == "escolha" then
-			if data[p].banned == false then
+			if data[p] and data[p].banned == false then
 				PLAYER[p].escolha[tonumber(arg[2],10)] = PLAYER[p].escolha and not PLAYER[p].escolha[tonumber(arg[2],10)] or false
 				if PLAYER[p].escolha then
 					ui.addTextArea(tonumber(arg[2],10)+1000, string.format("<p align='center'><a href='event:escolha %d'><%s>%s", tonumber(arg[2],10), PLAYER[p].escolha and PLAYER[p].escolha[tonumber(arg[2],10)] and "vp" or "r", ESCOLHA[tonumber(arg[2],10)] and ESCOLHA[tonumber(arg[2],10)].p or ""), p, ((tonumber(arg[2],10)-1)%5)*160+5, math.floor((tonumber(arg[2],10)-1)/5)*40+130, 150, 30, 1, 0x2A77EF, 0.85, true)
@@ -625,4 +625,3 @@ checkVariables()
 carregaMapa()
 ui.setMapName(BAR_TEXT)
 atualizaCat(true)
-
