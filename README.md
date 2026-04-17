@@ -1,5 +1,5 @@
-> Em breve, esta pasta será dada como descontinuada, e todos os scripts presentes nela estarão disponíveis para livre utilização, adaptação e obtenção de seus recursos.
-> This folder will soon be discontinued. And all scripts contained within will be available for free use, adaptation, and distribution of their resources.
+> Esta pasta foi descontinuada, e todos os scripts presentes nela estão disponíveis para livre utilização, adaptação e obtenção de seus recursos.
+> This folder was discontinued. All scripts contained within are available for free use, adaptation, and distribution of their resources.
 > Patrick_mahomes#1795
 
 # Welcome to the Transformice public modules folder.
