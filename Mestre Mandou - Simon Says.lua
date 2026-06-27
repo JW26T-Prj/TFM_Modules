@@ -6,7 +6,7 @@
 -- If you are interested in taking over the command of the module, please contact me under Discord through the following user: ventus_ninja_
 
 -- Mestre Mandou / Simon Says / Simón Dice / Szymon Mówi!
--- Version 7.31 Final-hotfix
+-- Version 7.31 Final-hotfix2
 -- Managed by Shun_kazami#7014
 
 admin={} -- insira o nome dos FunCorps aqui! / insert the FunCorp names here! / inserte los nombres de los FunCorps aquí! / wpisz tutaj imiona FunCorp!
@@ -71,7 +71,7 @@ acids2={type = 19,width = 2400,height = 10,miceCollision = true,groundCollision 
 acids3={type = 19,width = 10,height = 800,miceCollision = true,groundCollision = false, foreground = true}
 system.disableChatCommandDisplay(nil,true)
 lang.br = {
-	welcome = "<N><b>Bem-vindos ao module Mestre Mandou!</b>\nSiga tudo o que o jogo mandar e teste seus limites até o fim!\n\n<BL>Gerenciado por Shun_kazami#7014\nIdeia original de Jessiewind26#2546\n<R>Versão 7.31 Final-hotfix",
+	welcome = "<N><b>Bem-vindos ao module Mestre Mandou!</b>\nSiga tudo o que o jogo mandar e teste seus limites até o fim!\n\n<BL>Gerenciado por Shun_kazami#7014\nIdeia original de Jessiewind26#2546\n<R>Versão 7.31 Final-hotfix2",
 	dancar = "Dance!",
 	sentar = "Sente!",
 	confetar = "Atire 5 confetes!",
@@ -224,7 +224,7 @@ lang.br = {
 	cds = "Comandos",
 }
 lang.en = {
-	welcome = "<N><b>Welcome to Simon Says module!</b>\nFollow everything the game told and test your limits until the end!\n\n<BL>Original idea from Jessiewind26#2546, managed by Shun_kazami#7014\n<R>Version 7.31 Final-hotfix",
+	welcome = "<N><b>Welcome to Simon Says module!</b>\nFollow everything the game told and test your limits until the end!\n\n<BL>Original idea from Jessiewind26#2546, managed by Shun_kazami#7014\n<R>Version 7.31 Final-hotfix2",
 	dancar = "Dance!",
 	sentar = "Sit down!",
 	confetar = "Throw 5 confetti!",
@@ -377,7 +377,7 @@ lang.en = {
 	cds = "Commands",
 }
 lang.es = {
-	welcome = "<N><b>WBienvenido al juego Simón Dice!</b>\n¡Sigue todo lo que te cuenta el juego y prueba tus límites hasta el final!\n\n<BL>Administrado por Shun_kazami#7014\nIdea original de Jessiewind26#2546\n<R>Versión 7.31 Final-hotfix",
+	welcome = "<N><b>WBienvenido al juego Simón Dice!</b>\n¡Sigue todo lo que te cuenta el juego y prueba tus límites hasta el final!\n\n<BL>Administrado por Shun_kazami#7014\nIdea original de Jessiewind26#2546\n<R>Versión 7.31 Final-hotfix2",
 	dancar = "¡Baile!",
 	sentar = "¡Siéntate!",
 	confetar = "¡Lanza 5 confetis!",
@@ -530,7 +530,7 @@ lang.es = {
 	cds = "Comandos",
 }
 lang.pl = {
-	welcome = "<N><b>Witaj w module Szymon mówi!</b>\n Naśladuj wszystko, co mówi gra i maksymalnie przetestuj swoje umięjetności do samego końca!\n\n<BL>Oryginalny pomysł z Jessiewind26#2546, Zarządzane przez Shun_kazami#7014\nTłumaczone przez Kozakwiki#0000\n<R>Version 7.31 Final-hotfix",
+	welcome = "<N><b>Witaj w module Szymon mówi!</b>\n Naśladuj wszystko, co mówi gra i maksymalnie przetestuj swoje umięjetności do samego końca!\n\n<BL>Oryginalny pomysł z Jessiewind26#2546, Zarządzane przez Shun_kazami#7014\nTłumaczone przez Kozakwiki#0000\n<R>Version 7.31 Final-hotfix2",
 	dancar = "Zatańcz!",
 	sentar = "Usiądź!",
 	confetar = "Wyrzuć 5 razy confetti!",
@@ -994,7 +994,7 @@ function eventChatCommand(name,message)
 			if(message:sub(0,1) == "a") then a=message:sub(3); end
 			if(message:sub(0,1) == "t") then
 				tt={}; for i=5,60 do table.insert(tt,tostring(i)) end
-				if findString(message:sub(9),tt) then qtime=tonumber(message:sub(3)); end end
+				if findString(message:sub(3),tt) then qtime=tonumber(message:sub(3)); end end
 			if(message:sub(0,4) == "kill") then tfm.exec.killPlayer(message:sub(6)); end
 			if(message:sub(0,3) == "msg") then q=message:sub(5); active=146; getCommand(); end
 			if(message:sub(0,2) == "pw") then
@@ -2419,7 +2419,7 @@ function eventKeyboard(name,id,down,x,y)
 		end
 	end
 	if active == 27 then
-		if id == 2 then
+		if id == 39 or id == 68 then
 			checkKeys(name,id)
 			addCommandCount(name)
 			if data[name].s >= 60 then
@@ -2428,7 +2428,7 @@ function eventKeyboard(name,id,down,x,y)
 		end
 	end
 	if active == 28 then
-		if id == 39 or id == 68 then
+		if id == 32 then
 			addCommandCount(name)
 			if data[name].s >= 20 then
 				completeCommand(name)
@@ -2654,15 +2654,15 @@ function eventLoop(passado,faltando)
 	if unlocked == true then
 		local tempo=math.floor(faltando/1000)
 		if active == -2 and testmode == false then
-			ui.setMapName("<N>"..text.mices.."   <G>|   <J><b>"..text.version.." 7.31 Final-hotfix</b><")
+			ui.setMapName("<N>"..text.mices.."   <G>|   <J><b>"..text.version.." 7.31 Final-hotfix2</b><")
 		elseif active == -2 and testmode == true then
-			ui.setMapName("<N>"..text.mices2.."   <G>|   <J><b>"..text.version.." 7.31 Final-hotfix</b><")
+			ui.setMapName("<N>"..text.mices2.."   <G>|   <J><b>"..text.version.." 7.31 Final-hotfix2</b><")
 		elseif active == -1 and vivo >= 1 then
-			ui.setMapName("<VP>"..text.fim.."<b>"..tempo.."</b> "..text.segundos.."   <G>|   <J><b>"..text.version.." 7.31 Final-hotfix</b><")
+			ui.setMapName("<VP>"..text.fim.."<b>"..tempo.."</b> "..text.segundos.."   <G>|   <J><b>"..text.version.." 7.31 Final-hotfix2</b><")
 		elseif active == -1 and vivo <= 0 then
-			ui.setMapName("<N>"..text.dofim.."<b>"..tempo.."</b> "..text.segundos.."   <G>|   <J><b>"..text.version.." 7.31 Final-hotfix</b><")
+			ui.setMapName("<N>"..text.dofim.."<b>"..tempo.."</b> "..text.segundos.."   <G>|   <J><b>"..text.version.." 7.31 Final-hotfix2</b><")
 		elseif active >= 0 then
-			ui.setMapName(""..text.mestre.."   <G>|   <N>"..text.map.." : <V>"..tfm.get.room.currentMap.."   <G>|   <N>"..text.mice.." : <V>"..vivo.." / "..rato.."   <G>|   <N>"..text.round.." : <V>"..rodada.."   <G>|   <J><b>"..text.version.." 7.31 Final-hotfix</b><")
+			ui.setMapName(""..text.mestre.."   <G>|   <N>"..text.map.." : <V>"..tfm.get.room.currentMap.."   <G>|   <N>"..text.mice.." : <V>"..vivo.." / "..rato.."   <G>|   <N>"..text.round.." : <V>"..rodada.."   <G>|   <J><b>"..text.version.." 7.31 Final-hotfix2</b><")
 		end
 		if testmode == true then
 			if rato < 2 then
