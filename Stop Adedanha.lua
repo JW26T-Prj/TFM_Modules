@@ -1,5 +1,5 @@
 -- STOP
--- Escrito por Ninguem - 31/08/2015 // Atualizado por Akwimos#1937, Viego#0345 e Nekan#0000 - 06/02/2026
+-- Escrito por Ninguem - 31/08/2015 // Atualizado por Akwimos#1937, Viego#0345 e Nekan#0000 - 13/07/2026
 -- Mínimo de 5 temas e máximo de 20 temas.
 -- Para bloquear um jogador, digite !kick [nome#tag]. Digite o mesmo comando para desbloqueá-lo caso o mesmo já esteja bloqueado.
 
@@ -15,7 +15,7 @@ ATIME = 150 -- Tempo em segundos para os jogadores preencherem os temas (mínimo
 
 -- NÃO MEXA EM NADA A PARTIR DESTA LINHA!
 ----------------------------------------------------------------------------------------------------
-CAT = {"Nome","Animal","Objeto","Cor","Marca","TV/Filme/Anime/Desenho","Parte do Corpo","Ator/Cantor/Celebridade","Comida/Bebida","País/Cidade/Estado","Apelido de Garçom","Profissão","Tem no Transformice","O Tigrounette é..."}
+CAT = {"Nome","Animal","Objeto","Cor","Marca","TV/Filme/Anime/Desenho","Parte do Corpo","Ator/Cantor/Celebridade","Comida/Bebida","País/Cidade/Estado","Apelido de Garçom","Profissão","Tem no Transformice","O "..ADM[1].." é..."}
 ID = {cat=1,camada=2,add=3,msg=4,tempo=5,stop=6,crono=7}
 PLAYER = {};
 ESCOLHA = {}
@@ -25,7 +25,7 @@ PALAVRA = 1
 TEMPO = false
 LETRA = ""
 MAPA = "@7974521"
-BAR_TEXT = "<font color='#1178E6'><b>STOP!</b> <N>Script editado por Akwimos#1937, Viego#0345 e Nekan#0000 - 06/02/2026<"
+BAR_TEXT = "<font color='#1178E6'><b>STOP!</b> <N>Script editado por Akwimos#1937, Viego#0345 e Nekan#0000 - 13/07/2026<"
 data = {};
 ninjas = {};
 temp_time = -1;
