@@ -1,5 +1,5 @@
 -- STOP
--- Made by Ninguem - 31/08/2015 // Updated by Akwimos#1937, Viego#0345 e Nekan#0000 - 07/13/2026 // Translated by 
+-- Made by Ninguem - 31/08/2015 // Updated by Akwimos#1937, Viego#0345 e Nekan#0000 - 07/13/2026 // Translated by Mel#4548 - 07/13/2026
 -- Minimum of 5 topics and maximum of 20 topics.
 -- To block a player, type !kick [nome#tag]. Enter the same command to unlock it if it is already locked.
 
