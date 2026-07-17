@@ -166,7 +166,7 @@ perguntas={
 "Para usar o café, você precisa estar com quantos dias jogados de conta?","10","30",2,
 "Em qual dia do ano o Transformice foi criado?","1","2",1,
 "Qual o limite de queijos que podem ser armazenados no inventário?","250","1500",2,
-"Quantos anos tem o Transformice?","15","16",1,
+"Quantos anos tem o Transformice?","15","16",2,
 "Qual o nome do module do Transformice onde o objetivo é fugir dos ratos que congelam?","#freezertag","#snatch",1,
 "Ainda é possível colocar músicas no cafofo da tribo do Transformice, mesmo sem o plug-in do YouTube.","Verdadeiro","Falso",1,
 "Qual o nome de um module de testes extinto em que todos viravam Pikachu e tinham que descer a ladeira?","#surble","#surbler",1,
