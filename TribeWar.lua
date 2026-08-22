@@ -1,8 +1,12 @@
--- Atualizações feitas em 09/02/2026:
--- Adição de mapas de vanilla personalizados
--- Substituição dos comandos !mapmode, !maptime e !rounds pelo comando !settings
+-- Atualizações feitas em 22/08/2026:
+-- Adição de um novo sistema de definição de linguagem para cafofos de tribo
+-- Aumento do número máximo de rounds de 50 para 100
+-- Pequenas mudanças no comando !settings
+-- Adição do modo de pontuação simples
 
-admin={""} -- Insira seus nomes aqui, FunCorp! / Insert your nicknames here, FunCorp! / e.g. admins={"Shun_kazami#7014"}
+admin={} -- Insira seus nomes aqui, FunCorp! / Insert your nicknames here, FunCorp!
+-- e.g. admin={"Shun_kazami#7014"}
+
 testmode=false -- Altere para 'true' somente se quiser ver as mensagens do chat #lua no cafofo da tribo. / Change to 'true' only if you want to see chat messages in the #lua chat.
 
 -- Comandos/Commands:
@@ -32,7 +36,8 @@ end
 for _,g in next,{"start","reset","settings","kill","ban","rt","help","skip","antimacro"} do
 	system.disableChatCommandDisplay(g)
 end
-lang={}; data={}; rounds=20; mode="lobby"; maps="racing"; map_time=60; lobby_map="@7977532"; winner_map="@7928188"; round=-1; alives=0; position=1; remain_int=0; remain_int2=0; antimacro=true; ct_text=0;
+debug.disableEventLog(true)
+lang={}; data={}; rounds=20; mode="lobby"; maps="racing"; map_time=60; lobby_map="@7977532"; winner_map="@7928188"; single=false; round=-1; alives=0; position=1; remain_int=0; remain_int2=0; antimacro=true; ct_text=0; unlocked=false;
 tribes={}; final_ranking={}; vcount=0;
 mapas={1,2,8,11,12,14,19,22,24,26,27,28,30,31,33,35,40,41,44,45,53,55,57,58,59,62,63,64,65,67,69,70,71,73,74,78,79,80,86,89,92,96,100,114,117,118,119,120,121,122,123,124,126,127,138,142,145,148,149,150,157,158,172,173,174,175,176,180,182,185,188,189,190,191,217,219,221,222,224,225,226,228,230,231,232,233,235,237,241,242,244,245}
 mapas_vanilla_fm={7840564,7833272,7838967,7848597,7844664,7870862,7866227,7844642,7866235,7863950,7833169,7840186,7833269,7844648,7838838,2111371,7840728,7833293,7840159,7839014,7833287,7831136,7840110,7839806,7866246,7838910,7838930,7840404,7863952,7863947,7908730,7848782,7839352}
@@ -50,6 +55,7 @@ lang.br = {
 	scoring2 = " acrescentou 4 pontos para a tribo ",
 	scoring3 = " acrescentou 2 pontos para a tribo ",
 	scoring4 = ", que agora está com ",
+    scoring5 = " acrescentou 1 ponto para a tribo ",
 	tempr = "<ROSE>Estas são as tribos com maior pontuação até o o momento!",
 	cong1 = "<N>Parabéns para a tribo <VP><b>",
 	cong2 = "!</b>\n<N>Ela fez <J><b>",
@@ -73,6 +79,7 @@ lang.en = {
 	scoring2 = " scored 4 points to the tribe ",
 	scoring3 = " scored 2 points to the tribe ",
 	scoring4 = ". It now have ",
+    scoring5 = " scored 1 point to the tribe ",
 	tempr = "<ROSE><b>Current tribes scoreboard:</b>",
 	cong1 = "<N>Congratulations to the tribe <VP><b>",
 	cong2 = "!</b>\n<N>It scored <J><b>",
@@ -85,10 +92,15 @@ lang.en = {
 	help = "<p align='center'><N><b>Welcome to the TribeWar Renewed module.</b>\n\n<p align='left'>In this game, the players needs to represent your tribes in a very tight match. Reach the podium will give points to your tribe.\n\nAt the end of the match, the tribe that scored more will win the game.\n\n<VP>Scores by position:\n<BL>• <N>1st place = <VP>6 points\n<BL>• <N>2nd place = <VP>4 points\n<BL>• <N>3rd place = <VP>2 points\n\n<R>If you leave your tribe and join another, you only can represent your new tribe in the next match."
 }
 
-if tfm.get.room.community == "br" or tfm.get.room.community == "pt" then
-	text = lang.br
-else
-	text = lang.en
+function selectLanguage()
+    if rawlen(admin) == 0 then
+        ui.addPopup(300,0,"IMPORTANTE: Para que este código seja executado em um cafofo de tribo, é necessário colocar os nomes dos administradores na tabela presente na primeira linha do código.\n\nIMPORTANT: For this code to run in a tribehouse, it is necessary to put the names of the administrators in the table present in the first line of the code.\n\nIMPORTANTE: Para que este código funcione en una tribu, es necesario colocar los nombres de los administradores en la tabla presente en la primera línea del código.\n\nWAŻNE: Aby ten kod działał w domu plemiennym, konieczne jest wpisanie nazwisk administratorów w tabeli znajdującej się w pierwszym wierszu kodu.",nil,150,25,500,true)
+    end
+    for _,name in next,admin do
+        ui.addTextArea(2000,"<font size='14'><p align='center'>Select your language:",name,300,180,185,23,0x000001,0x505050,0.98,true)
+        ui.addTextArea(2001,"<font size='15'><p align='center'><a href='event:pt'>PT",name,370,210,40,23,0x000001,0x505050,0.98,true)
+        ui.addTextArea(2002,"<font size='15'><p align='center'><a href='event:en'>EN",name,370,240,40,23,0x000001,0x505050,0.98,true)    
+    end
 end
 
 function findString(object,tb)
@@ -145,16 +157,16 @@ function findID(object)
 	end
 end
 function showLobbyCommands(name)
-	ui.addTextArea(4001,"<font size='14'><p align='center'><a href='event:start'>"..text.start.."",name,0,369,100,26,0x161616,0x808080,0.9,true)
-	ui.addTextArea(4002,"<font size='14'><p align='center'><a href='event:reset'>"..text.reset.."",name,110,369,100,26,0x161616,0x808080,0.9,true)
-	ui.addTextArea(4003,"<font size='14'><p align='center'><a href='event:sts'>"..text.sts.."",name,220,369,100,26,0x161616,0x808080,0.9,true)
-	ui.addTextArea(4004,"<font size='14'><p align='center'><a href='event:ban'>Ban",name,330,369,100,26,0x161616,0x808080,0.9,true)
+	ui.addTextArea(4001,"<font size='14'><p align='center'><a href='event:start'>"..text.start.."",name,5,373,100,22,0x161616,0x808080,0.9,true)
+	ui.addTextArea(4002,"<font size='14'><p align='center'><a href='event:reset'>"..text.reset.."",name,115,373,100,22,0x161616,0x808080,0.9,true)
+	ui.addTextArea(4003,"<font size='14'><p align='center'><a href='event:sts'>"..text.sts.."",name,225,373,100,22,0x161616,0x808080,0.9,true)
+	ui.addTextArea(4004,"<font size='14'><p align='center'><a href='event:ban'>Ban",name,335,373,100,22,0x161616,0x808080,0.9,true)
 end
 function showGameCommands(name)
-	ui.addTextArea(4005,"<font size='14'><p align='center'><a href='event:skip'>"..text.skip.."",name,0,369,100,26,0x161616,0x808080,0.9,true)
-	ui.addTextArea(4002,"<font size='14'><p align='center'><a href='event:reset'>"..text.reset.."",name,110,369,100,26,0x161616,0x808080,0.9,true)
-	ui.addTextArea(4006,"<font size='14'><p align='center'><a href='event:rt'>RT",name,220,369,100,26,0x161616,0x808080,0.9,true)
-	ui.addTextArea(4004,"<font size='14'><p align='center'><a href='event:ban'>Ban",name,330,369,100,26,0x161616,0x808080,0.9,true)
+	ui.addTextArea(4005,"<font size='14'><p align='center'><a href='event:skip'>"..text.skip.."",name,5,373,100,22,0x161616,0x808080,0.9,true)
+	ui.addTextArea(4002,"<font size='14'><p align='center'><a href='event:reset'>"..text.reset.."",name,115,373,100,22,0x161616,0x808080,0.9,true)
+	ui.addTextArea(4006,"<font size='14'><p align='center'><a href='event:rt'>RT",name,225,373,100,22,0x161616,0x808080,0.9,true)
+	ui.addTextArea(4004,"<font size='14'><p align='center'><a href='event:ban'>Ban",name,335,373,100,22,0x161616,0x808080,0.9,true)
 end
 function rankTribes()
 	table.sort(tribes, function(a, b) return a[2] > b[2] end)
@@ -274,6 +286,9 @@ function genFinalRanking()
 end
 function lobby()
 	tfm.exec.newGame(lobby_map)
+    for name,_ in next,tfm.get.room.playerList do
+        tfm.exec.setPlayerScore(name,0,true)
+    end
 	mode="lobby"; round=-1; alives=0; position=1; tribes={}; final_ranking={}; vcount=0;
 	for i=1,6 do
 		ui.removeTextArea(i)
@@ -286,36 +301,38 @@ function antiMacroFreeze(name)
 	end
 end
 function eventNewPlayer(name)
-	if not data[name] then
-		newData={
-			["tribe"]="";
-			["wins"]=0;
-			["rankings"]=0;
-			["banned"]=false;
-			["opened"]=false;
-			["z"]=0;
-			["w"]=0;
-			["up"]=0;
-			};
-		data[name] = newData;
-	end
-	showMessage(text.welcome,name)
-	for _,k in next,{38,87,90} do
-		system.bindKeyboard(name, k, true, true)
-	end
-	if mode == "lobby" or mode == "waiting" then
-		tfm.exec.respawnPlayer(name)
-	end
-	if mode == "game" then
-		if data[name] then
-			if string.len(data[name].tribe) <= 1 then
-				if not tfm.get.room.playerList[name].tribeId == nil then
-					data[name].tribe=tfm.get.room.playerList[name].tribeName;
-					showMessage(text.tribelock1..tfm.get.room.playerList[name].tribeName..text.tribelock2)
-					table.insert(tribes,{tfm.get.room.playerList[name].tribeName, 0})
-				end
-			end
-		end
+    if unlocked == true then
+        if not data[name] then
+            newData={
+                ["tribe"]="";
+                ["wins"]=0;
+                ["rankings"]=0;
+                ["banned"]=false;
+                ["opened"]=false;
+                ["z"]=0;
+                ["w"]=0;
+                ["up"]=0;
+                };
+            data[name] = newData;
+        end
+        showMessage(text.welcome,name)
+        for _,k in next,{38,87,90} do
+            system.bindKeyboard(name, k, true, true)
+        end
+        if mode == "lobby" or mode == "waiting" then
+            tfm.exec.respawnPlayer(name)
+        end
+        if mode == "game" then
+            if data[name] then
+                if string.len(data[name].tribe) <= 1 then
+                    if not tfm.get.room.playerList[name].tribeId == nil then
+                        data[name].tribe=tfm.get.room.playerList[name].tribeName;
+                        showMessage(text.tribelock1..tfm.get.room.playerList[name].tribeName..text.tribelock2)
+                        table.insert(tribes,{tfm.get.room.playerList[name].tribeName, 0})
+                    end
+                end
+            end
+        end
 	end
 end
 for name,player in next,tfm.get.room.playerList do
@@ -333,12 +350,6 @@ function eventKeyboard(name, key)
 			data[name].z=data[name].z+1
 		end
 	end
-end
-function eventTextAreaCallback(id,name,callback)
-	for _,i in next,{1000,1001,1002,1003,1004} do
-		ui.removeTextArea(i,name)
-	end
-	data[name].opened=false
 end
 function eventNewGame()
 	for _,i in next,{4001,4002,4003,4004,4005,4006} do
@@ -413,18 +424,27 @@ function eventPlayerWon(name)
 			alives=alives-1
 			if data[name].tribe == tfm.get.room.playerList[name].tribeName then
 				tribe_id=findID(name)
-				if position == 1 then
-					tribes[tribe_id][2]=tribes[tribe_id][2]+6
-					showMessage("<VP>"..name.."<N>"..text.scoring1.."<VP><b>"..data[name].tribe.."</b><N>"..text.scoring4.."<J><b>"..tribes[tribe_id][2].."</b><N>"..text.points.."")
-				elseif position == 2 then
-					tribes[tribe_id][2]=tribes[tribe_id][2]+4
-					showMessage("<VP>"..name.."<N>"..text.scoring2.."<VP><b>"..data[name].tribe.."</b><N>"..text.scoring4.."<J><b>"..tribes[tribe_id][2].."</b><N>"..text.points.."")
-				elseif position == 3 then
-					tribes[tribe_id][2]=tribes[tribe_id][2]+2
-					showMessage("<VP>"..name.."<N>"..text.scoring3.."<VP><b>"..data[name].tribe.."</b><N>"..text.scoring4.."<J><b>"..tribes[tribe_id][2].."</b><N>"..text.points.."")
-					if remain_int > 5 then
-						tfm.exec.setGameTime(5)
-					end
+                if single == false then
+                    if position == 1 then
+                        tribes[tribe_id][2]=tribes[tribe_id][2]+6
+                        showMessage("<VP>"..name.."<N>"..text.scoring1.."<VP><b>"..data[name].tribe.."</b><N>"..text.scoring4.."<J><b>"..tribes[tribe_id][2].."</b><N>"..text.points.."")
+                    elseif position == 2 then
+                        tribes[tribe_id][2]=tribes[tribe_id][2]+4
+                        showMessage("<VP>"..name.."<N>"..text.scoring2.."<VP><b>"..data[name].tribe.."</b><N>"..text.scoring4.."<J><b>"..tribes[tribe_id][2].."</b><N>"..text.points.."")
+                    elseif position == 3 then
+                        tribes[tribe_id][2]=tribes[tribe_id][2]+2
+					showMessage("<VP>"..name.."<N>"..text.scoring3.."<VP><b>"..data[name].tribe.."</   b><N>"..text.scoring4.."<J><b>"..tribes[tribe_id][2].."</b><N>"..text.points.."")
+                        if remain_int > 5 then
+                            tfm.exec.setGameTime(5)
+                        end
+                    end
+                else
+                    if position == 1 then
+                        tribes[tribe_id][2]=tribes[tribe_id][2]+1
+                        showMessage("<VP>"..name.."<N>"..text.scoring5.."<VP><b>"..data[name].tribe.."</b><N>"..text.scoring4.."<J><b>"..tribes[tribe_id][2].."</b><N>"..text.points.."")
+                        tfm.exec.setPlayerScore(name,1,true)
+                        tfm.exec.setGameTime(10)
+                    end
 				end
 				position=position+1
 			end
@@ -435,17 +455,19 @@ function eventPlayerWon(name)
 	end
 end
 function eventPlayerDied(name)
-	alives=alives-1
-	local i=0
-	local n
-	for pname,player in next,tfm.get.room.playerList do
-		if not player.isDead and not player.isShaman then
-			i=i+1
-			n=pname
-		end
-	end
-	if i==0 then
-		changeMap();
+    if unlocked == true then
+        alives=alives-1
+        local i=0
+        local n
+        for pname,player in next,tfm.get.room.playerList do
+            if not player.isDead and not player.isShaman then
+                i=i+1
+                n=pname
+            end
+        end
+        if i==0 then
+            changeMap();
+        end
 	end
 end
 function lockTribes()
@@ -467,30 +489,32 @@ function lockTribes()
 	showMessage(text.prepare)
 end
 function changeMap()
-	round=round+1
-	if round <= rounds then
-		if maps == "racing" then
-			tfm.exec.newGame("#17")
-		elseif maps == "bootcamp" then
-			tfm.exec.newGame("#13")
-		elseif maps == "vanilla" then
-			vcount=vcount+1
-			if vcount % 4 == 0 then
-				tfm.exec.newGame(mapas_vanilla_fm[math.random(#mapas_vanilla_fm)])
-			else
-				tfm.exec.newGame(mapas[math.random(#mapas)])
-			end
-		elseif maps == "p1" then
-			tfm.exec.newGame(mapas_p1[math.random(#mapas_p1)])
-		elseif maps == "burlas" then
-			tfm.exec.newGame(mapas_burlas[math.random(#mapas_burlas)])
-		elseif maps == "mix" then
-			number=math.random(1,5)
-			if number == 1 then tfm.exec.newGame("#17"); elseif number == 2 then tfm.exec.newGame("#13"); elseif number == 3 then tfm.exec.newGame(mapas[math.random(#mapas)]); elseif number == 4 then tfm.exec.newGame(mapas_p1[math.random(#mapas_p1)]); elseif number == 5 then tfm.exec.newGame(mapas_burlas[math.random(#mapas_burlas)]); end
-		end
-	else
-		tfm.exec.newGame(winner_map)
-		mode="end"
+    if unlocked == true then
+        round=round+1
+        if round <= rounds then
+            if maps == "racing" then
+                tfm.exec.newGame("#17")
+            elseif maps == "bootcamp" then
+                tfm.exec.newGame("#13")
+            elseif maps == "vanilla" then
+                vcount=vcount+1
+                if vcount % 4 == 0 then
+                    tfm.exec.newGame(mapas_vanilla_fm[math.random(#mapas_vanilla_fm)])
+                else
+                    tfm.exec.newGame(mapas[math.random(#mapas)])
+                end
+            elseif maps == "p1" then
+                tfm.exec.newGame(mapas_p1[math.random(#mapas_p1)])
+            elseif maps == "burlas" then
+                tfm.exec.newGame(mapas_burlas[math.random(#mapas_burlas)])
+            elseif maps == "mix" then
+                number=math.random(1,5)
+                if number == 1 then tfm.exec.newGame("#17"); elseif number == 2 then tfm.exec.newGame("#13"); elseif number == 3 then tfm.exec.newGame(mapas[math.random(#mapas)]); elseif number == 4 then tfm.exec.newGame(mapas_p1[math.random(#mapas_p1)]); elseif number == 5 then tfm.exec.newGame(mapas_burlas[math.random(#mapas_burlas)]); end
+            end
+        else
+            tfm.exec.newGame(winner_map)
+            mode="end"
+        end
 	end
 end
 function eventChatCommand(name,command)
@@ -529,57 +553,59 @@ function eventChatCommand(name,command)
 	end
 end
 function eventLoop(release,remain)
-	remain_int=math.ceil(remain/1000)
-	remain_int2=math.ceil(remain/500)*2
-	if ct_text > 0 then
-		ct_text=ct_text-0.5
-		if ct_text == 0 then
-			ui.removeTextArea(3070,nil)
-		end
-	end
-	if mode == "lobby" or mode == "waiting" or mode == "end" then
-		ui.setMapName("<J><b>TribeWar Renewed</b><")
-	end
-	if remain <= 1000 and mode == "waiting" then
-		mode="game"; changeMap();
-	end
-	if mode == "game" then
-		remaining=math.floor(remain/1000)
-		ui.setMapName("<J><b>TribeWar Renewed</b>   <G>|   <N>"..text.map.." : <V>"..tfm.get.room.currentMap.."   <G>|   <N>"..text.time.." : <V>"..remaining.."s   <G>|   <N>Round : <V>"..round.."/"..rounds.."<")
-		if remain <= 500 and round < rounds then
-			changeMap();
-		elseif remain <= 500 and round >= rounds then
-			tfm.exec.newGame(winner_map)
-			mode="end"
-		end
-		if antimacro == true then
-			for name,_ in next,tfm.get.room.playerList do
-				if tfm.get.room.playerList[name].isDead == false then
-					if data[name] then
-						if data[name].up >= 25 or data[name].z >= 25 or data[name].w >= 25 then
-							antiMacroFreeze(name)
-						end
-					end
-				end
-			end
-			if remain_int2 % 2 == 0 then
-				for name,_ in next,tfm.get.room.playerList do
-					if data[name] then
-						data[name].up=0; data[name].w=0; data[name].z=0;
-					end
-				end
-			end
-		end
-	end
-	if mode == "end" then
-		if remain <= 100 then
-			lobby()
-		else
-			particles={0,1,2,4,9,11,13,21,22,23,24}
-			for i=1,10 do
-				tfm.exec.displayParticle(particles[math.random(#particles)],math.random(40,760),math.random(70,380),0.6,0.6,0.1,0.1,nil)
-			end
-		end
+    if unlocked == true then
+        remain_int=math.ceil(remain/1000)
+        remain_int2=math.ceil(remain/500)*2
+        if ct_text > 0 then
+            ct_text=ct_text-0.5
+            if ct_text == 0 then
+                ui.removeTextArea(3070,nil)
+            end
+        end
+        if mode == "lobby" or mode == "waiting" or mode == "end" then
+            ui.setMapName("<J><b>TribeWar Renewed</b><")
+        end
+        if remain <= 1000 and mode == "waiting" then
+            mode="game"; changeMap();
+        end
+        if mode == "game" then
+            remaining=math.floor(remain/1000)
+            ui.setMapName("<J><b>TribeWar Renewed</b>   <G>|   <N>"..text.map.." : <V>"..tfm.get.room.currentMap.."   <G>|   <N>"..text.time.." : <V>"..remaining.."s   <G>|   <N>Round : <V>"..round.."/"..rounds.."<")
+            if remain <= 500 and round < rounds then
+                changeMap();
+            elseif remain <= 500 and round >= rounds then
+                tfm.exec.newGame(winner_map)
+                mode="end"
+            end
+            if antimacro == true then
+                for name,_ in next,tfm.get.room.playerList do
+                    if tfm.get.room.playerList[name].isDead == false then
+                        if data[name] then
+                            if data[name].up >= 25 or data[name].z >= 25 or data[name].w >= 25 then
+                                antiMacroFreeze(name)
+                            end
+                        end
+                    end
+                end
+                if remain_int2 % 2 == 0 then
+                    for name,_ in next,tfm.get.room.playerList do
+                        if data[name] then
+                            data[name].up=0; data[name].w=0; data[name].z=0;
+                        end
+                    end
+                end
+            end
+        end
+        if mode == "end" then
+            if remain <= 100 then
+                lobby()
+            else
+                particles={0,1,2,4,9,11,13,21,22,23,24}
+                for i=1,10 do
+                    tfm.exec.displayParticle(particles[math.random(#particles)],math.random(40,760),math.random(70,380),0.6,0.6,0.1,0.1,nil)
+                end
+            end
+        end
 	end
 end
 function eventTextAreaCallback(id,name,callback)
@@ -601,6 +627,34 @@ function eventTextAreaCallback(id,name,callback)
 	if callback == "ban" then
 		ui.addPopup(4004,2,"Ban or unban a player",name,300,175,200,true)
 	end
+	if callback == "pt" then
+        for _,i in next,{2000,2001,2002} do
+            ui.removeTextArea(i,nil)
+        end
+        ui.addPopup(300,0,"",nil,-2048,-2048,10,false)
+        text = lang.br
+        unlocked=true;
+        lobby();
+        for name,player in next,tfm.get.room.playerList do
+            eventNewPlayer(name)
+        end
+    end
+    if callback == "en" then
+        for _,i in next,{2000,2001,2002} do
+            ui.removeTextArea(i,nil)
+        end
+        ui.addPopup(300,0,"",nil,-2048,-2048,10,false)
+        text = lang.en
+        unlocked=true;
+        lobby();
+        for name,player in next,tfm.get.room.playerList do
+            eventNewPlayer(name)
+        end
+    end
+    for _,i in next,{1000,1001,1002,1003,1004} do
+        ui.removeTextArea(i,name)
+    end
+    data[name].opened=false
 end
 function eventPopupAnswer(id,name,message)
 	if id == 4001 then
@@ -608,15 +662,15 @@ function eventPopupAnswer(id,name,message)
 		if findString(message,tt) then
 			changeMapMode(tonumber(message))
 		end
-		ui.addPopup(4002,2,"Rounds (5-50)",name,300,175,200,true)
+		ui.addPopup(4002,2,"Rounds (5-100)<br>Default: 20",name,300,175,200,true)
 	end
 	if id == 4002 then
 		tt={}; for i=5,50 do table.insert(tt,tostring(i)) end
 		if findString(message,tt) then
 			rounds=tonumber(message);
-			showMessage("D: "..rounds)
+			showMessage("Rounds: "..rounds)
 		end
-		ui.addPopup(4003,2,"Map time (30-120)",name,300,175,200,true)
+		ui.addPopup(4003,2,"Map time (30-120)<br>Default: 60",name,300,175,200,true)
 	end
 	if id == 4003 then
 		tt={}; for i=30,120 do table.insert(tt,tostring(i)) end
@@ -624,11 +678,34 @@ function eventPopupAnswer(id,name,message)
 			map_time=tonumber(message);
 			showMessage("Map time: "..map_time)
 		end
+		ui.addPopup(4005,1,"Select 'Yes' to enable single-scoring mode, select 'No' to enable multi-scoring mode",name,300,175,200,true)
 	end
 	if id == 4004 then
 		if banPlayer(message) == true then
 			showMessage(message..text.istatus)
 		end
 	end
+    if id == 4005 then
+        if message == "yes" then
+            single=true;
+        else
+            single=false;
+        end
+        showMessage("Single scoring: "..tostring(single))
+    end
 end
-lobby()
+
+if tfm.get.room.isTribeHouse == false then
+    if tfm.get.room.community == "br" or tfm.get.room.community == "pt" then
+        text = lang.br
+    else
+        text = lang.en
+    end
+    unlocked=true;
+    lobby();
+    for name,player in next,tfm.get.room.playerList do
+        eventNewPlayer(name)
+    end
+else
+    selectLanguage();
+end
